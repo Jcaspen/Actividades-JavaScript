@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var cadena = prompt("introduce el texto que será analizado");
+      for (let i = 0; i < 2; i++){
+        alert("Analizando.....");
+      }
+
+      function cal(cadena){
+        var indice = cadena.length;
+        var nuevo=cadena[cadena.length-1];
+        for (var i = indice-2; i >= 0; i--) {
+          nuevo += cadena[i];
+        }
+
+        if(nuevo == cadena){
+          alert("Es un palíndromo!!!");
+        }else{
+          alert("No es un palíndromo");
+        }
+      }
+      cal(cadena);
+
+    </script>
+  </body>
+</html>
