@@ -6,10 +6,29 @@
   </head>
   <body>
     <script type="text/javascript">
-      var entrada= prompt("Introduce el radio de un círculo");
-      var final=Math.PI * Math.pow(parseInt(entrada),2);
-      var final2=final.toFixed(2);
-      alert (`El radio del círculo es ${final2} cm²`);
+      var entrada0=prompt("¿Qué área te interesa conocer?, 1.- Círculo; 2.- Triángulo");
+
+      switch (entrada0) {
+        case "1":
+          var entrada= prompt("Introduce el radio de un círculo");
+          var final=Math.PI * Math.pow(parseFloat(entrada),2);
+          var final2=final.toFixed(2);
+          alert (`El radio del círculo es ${final2} cm²`);
+          break;
+
+        case "2":
+          var entradatri= prompt("Introduce la base del triángulo");
+          var entradatri2= prompt("Introduce la altura del triángulo");
+          var finaltri=parseFloat(entradatri)*parseFloat(entradatri2)/2;
+          var finaltri2=finaltri.toFixed(2);
+          alert (`El área del Triángulo es ${finaltri2} cm²`);
+          break;
+
+        default:
+          alert("Opción incorrecta!, membrillo");
+          break;
+      }
+
     </script>
   </body>
 </html>
