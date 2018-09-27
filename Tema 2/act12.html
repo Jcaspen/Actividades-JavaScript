@@ -19,7 +19,10 @@
       console.log("Pulse 3 para multiplicar");
       console.log("Pulse 4 para dividir");
       console.log("Pulse 5 para obtener el módulo");
-      console.log("Pulse 6 para SALIR");
+      console.log("Pulse 6 para elevar un número a una potencia");
+      console.log("Pulse 7 para hacer la raíz cuadrada de un número");
+      console.log("Pulse 8 Cambiar la base");
+      console.log("Pulse 9 para SALIR");
       var entrada= prompt("Introduce una opción:");
 
       switch (entrada) {
@@ -59,6 +62,26 @@
           break;
 
         case "6":
+          var ele = Number(prompt("Introduce el Valor a elevar"));
+          var ele2= Number(prompt("Introduce el valor al que será elevado"));
+          var total6=Math.pow(ele,ele2);
+          alert(total6);
+          break;
+
+        case "7":
+          var rai = Number(prompt("Introduce un valor"));
+          var total7=Math.sqrt(rai);
+          alert(total7);
+          break;
+
+        case "8":
+          var oper =Number(prompt("Introduce el valor a cambiar"));
+          var base =Number(prompt("Introduce la base(binario, octal, hexadecimal, decimal)"));
+          var total8=oper.toString(base);
+          alert(total8);
+          break;
+
+        case "9":
           var r = confirm("Quieres Salir?");
           if (r == true) {
             var txt = "Seguro?";
