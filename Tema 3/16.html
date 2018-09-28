@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 16</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var entrada=prompt("Introduce una frase");
+      var palabraBuscar=prompt("Introduce una palabra a buscar");
+      var cambiarPalabra=prompt("Si encuentra la palabra la cambiamos por: ");
+      var result=entrada.indexOf(palabraBuscar);
+      
+      if(result == -1){
+        alert("La palabra no se encuentra en la frase");
+      }else {
+        alert(`La palabra buscada se encuentra a partir de la posición: ${result}`);
+      }
+
+      var palabra = entrada.slice(result);
+      function reemplazar(){
+        var cambiada = entrada.replace(palabra,cambiarPalabra);
+        alert(cambiada);
+      }
+
+      reemplazar();
+
+    </script>
+  </body>
+</html>
