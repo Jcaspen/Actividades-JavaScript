@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 20</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var matri=prompt("Introduce una matrícula moderna");
+      var guia= /\d{4}(?= ([b-d]|[f-h]|[j-n]|p|[r-t]|[v-z]){3})/i;
+      if(guia.test(matri)){
+        alert("Correcto");
+      } else {
+        alert("Incorrecto");
+      }
+    </script>
+  </body>
+</html>
