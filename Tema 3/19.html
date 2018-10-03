@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 19 </title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var entrada=prompt("Introduce una fecha válida (hh:mm:ss o hh:mm)");
+      var regla=/^([0-1]{1}\d|[2]{1}[0-3]{1})\:[0-5]{1}\d(\:[0-5]{1}\d)*$/g;
+      if(regla.test(entrada)){
+        alert("Correcto");
+      }else {
+        alert("Incorrecto");
+      }
+    </script>
+  </body>
+</html>
