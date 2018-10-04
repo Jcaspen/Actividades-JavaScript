@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 22</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var frases=`Comienza (^) por un paréntesis (\(), le sigue un carácter + (\+), después una cifra numérica
+      (\d) de la que habrá 2 o 3 ocurrencias ({2,3}), después le sigue un paréntesis de cierre (\)),
+      luego viene una cifra numérica de la que habrá 9 ocurrencias ({9}), y aquí acabará la cadena
+      ($). `;
+      var linea="<br/>";
+      var expr=/\.* (\w+)/g;
+      var result=expr.exec(frases);
+      var f="";
+      while (result!=null) {
+        f+=linea;
+        for (var i = 0; i < frases.length; i++) {
+          f+=i + ": ";
+          f+=result[i];
+          f=linea;
+        }
+        result=expr.exec(frases);
+      }
+      document.write(f);
+    </script>
+  </body>
+</html>
