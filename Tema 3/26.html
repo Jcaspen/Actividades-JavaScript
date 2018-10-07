@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 26</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        var frase1="En las puertas de la tierra media, se cuenta la leyenda dela tela, del señor obtusos y del leru partio.";
+        var frase2="Ambiguo durante años fue abducido.";
+        var frase3="Y buscado por marte. Pero no parte";
+        var frase4=" lo llevaron a lorem";
+        var frases=frase1+frase2+frase3+frase4;
+        var entrada=prompt("Introduce un patrón");
+        //Te pongo en las frases cada una en una variable para que veas que son frases independientes.
+        var expr=/\w*te\w*/g;
+        var result = expr.exec(frases);
+        var f=0;
+        while (result!=null) {
+          for (var i = 0; i < result.length; i++) {
+            f++;
+          }
+          result=expr.exec(frases);
+        }
+        alert(f);
+
+
+        </script>
+    </body>
+</html>

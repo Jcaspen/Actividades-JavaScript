@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 24</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        var frase1="En las puertas de la tierra media, se cuenta la leyenda del shakha, del señor obtuso y del leru partio.";
+        var frase2="Ambiguo durante siglos fue abducido.";
+        var frase3="Y buscado por muchos. Pero no logueo";
+        var frase4=" lo llevaron a lorem";
+        var frases=frase1+frase2+frase3+frase4;
+        // Ejercicio 27
+        var entrada=prompt("Introduce un patrón");
+        //Te pongo en las frases cada una en una variable para que veas que son frases independientes.
+        //var prueba= new RegExp('{'+entrada+'}\\w+');
+        var expr=/lo\w+/g;
+        var result = expr.exec(frases);
+        var f="";
+        while (result!=null) {
+          for (var i = 0; i < result.length; i++) {
+
+            f+=result[i]+" ";
+          }
+          result=expr.exec(frases);
+        }
+        alert(f);
+
+
+        </script>
+    </body>
+</html>

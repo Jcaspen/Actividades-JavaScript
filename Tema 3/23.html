@@ -2,29 +2,30 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Actividad 22</title>
+    <title>Actividad 23</title>
   </head>
   <body>
     <script type="text/javascript">
-      var frase1='En las puertas de la tierra media, se cuenta la leyenda del shakha, del señor obtuso y del leru partío.';
-      var frase2='Ambiguo durante siglos fue abducido.';
+      var frase1="En las puertas de la tierra media, se cuenta la leyenda del shakha, del señor obtuso y del leru partio.";
+      var frase2="Ambiguo durante siglos fue abducido.";
       var frase3="Y buscado por muchos.";
-      var frase4="Y ha acabado en manos de quien meaba mas que bebía.";
-      var expr=/\.\b\w+/g;
+      var frase4="Y ha acabado en manos de quien meaba mas que bebia.";
+      var expr=/\w+(?=\.)/g;
       var frases=frase1+frase2+frase3+frase4;
       document.write(frases);
       var result = expr.exec(frases);
       document.write(result);
-      //Un poco de trampa. No se hacer que me devuelva la primera
-      var f="En";
+      var f="";
       while (result!=null) {
         for (var i = 0; i < result.length; i++) {
-          f+=result[i]+ " ";
+
+          f+=result[i]+" ";
+
         }
         result=expr.exec(frases);
-
       }
       alert(f);
+      //No entiendo por que me da los resultados dobles. tampoco porque el exec no coje palabras con acento
     </script>
   </body>
 </html>

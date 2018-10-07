@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>URL'S</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            //Comprobar patrones
+            // var patron1= new RegExp(/[http,https{1}]:\/\/[www?]\.[.*]\.[.*]/,i);    //Falla
+            var patron = /^http[s]?\:\/\/\d+\.\d.\d+$/;                          //Esta no es válida pues le falta el ;
+            var patt = /^(http[s]?\:\/\/)([w]{3})?[\.]?\w*[\.]\w*$/;             //Falla con la https, arreglado, esta sería la corrección!!!
+            var patron2 = /^http\:\/\/(.+)?\..+\..+$/;                           //No funciona
+            var patron3 = /http[s]?\:\/\/[w]*\.?[a-z]+\.[es]?[com]?/;            //Funciona!
+            var patron4 =/^(http:\/\/ | https:\/\/)[A-Za-z]* \.(com|es)$/;       //No funciona
+            var regurl = new RegExp("^((https|http)://www\.[a-z]+\.[a-z]+)$");   //No funciona con valido2
+            var patron5 = /^(http|https)\:\/\/(www\.)?[a-z0-9]+\.[a-z]$/;        //No funciona
+            var reg = /^http(s)?\:\/\/w{3}\.[a-z0-9]+\.(es|com)$/;               //No funciona
+            var patUrl = /^(http|https):\/\/(w{3}\.|)[a-zA-Z0-9]+\.[a-z]{3}$/;   //No funciona
+            var pat = /^(http|https)\:\/\/(www\.)?[a-zA-Z]*\.(es|com)$/;         //Funciona!!!
+
+            var valido="http://www.google.es";
+            var valido2="https://url.com";
+
+            var result=pat.test(valido2);
+            alert(result);
+        </script>
+    </body>
+</html>
