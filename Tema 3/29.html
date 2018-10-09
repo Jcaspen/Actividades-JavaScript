@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 29</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var entrada=prompt("INtroduce un texto");
+            var expr=/(<script>(?=.*)) | (<\/script>(?=.*))/gi;
+            var result=expr.test(entrada);
+
+            if (result) {
+                var salida=entrada.replace(expr,"");
+                console.log(salida);
+            }else{
+                alert("No se encontro etiquetas html");
+            }
+
+        </script>
+    </body>
+</html>
