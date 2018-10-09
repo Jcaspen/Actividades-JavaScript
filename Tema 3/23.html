@@ -10,6 +10,7 @@
       var frase2="Ambiguo durante siglos fue abducido.";
       var frase3="Y buscado por muchos.";
       var frase4="Y ha acabado en manos de quien meaba mas que bebia.";
+      //Tengo que actualizar el \w por [A-z]... metiendo los acentos para que me los coja
       var expr=/\w+(?=\.)/g;
       var frases=frase1+frase2+frase3+frase4;
       document.write(frases);
@@ -18,14 +19,11 @@
       var f="";
       while (result!=null) {
         for (var i = 0; i < result.length; i++) {
-
           f+=result[i]+" ";
-
         }
         result=expr.exec(frases);
       }
       alert(f);
-      //No entiendo por que me da los resultados dobles. tampoco porque el exec no coje palabras con acento
     </script>
   </body>
 </html>
