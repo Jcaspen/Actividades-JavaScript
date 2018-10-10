@@ -1,0 +1,18 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+  document.write("URL completa: " + location.href + "<br>");
+  document.write("Pathname: " + location.pathname + "<br>");
+  document.write("Protocolo: " + location.protocol + "<br>");
+  </script>
+</head>
+<body>
+  <form>
+    <input type="button" value="Recargar" onclick="location.reload()">
+    <input type="button" value="Asignar" onclick="location.assign(`http://www.google.com`)">
+    <input type="button" value="Reemplazar" onclick="location.replace(`http://www.google.es`)">
+  </form>
+</body>
+</html>

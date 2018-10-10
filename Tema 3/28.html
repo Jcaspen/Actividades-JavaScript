@@ -8,18 +8,21 @@
     Buscar dentro de un texto palabras con una longitud determinada. La longitud la decidirá el
     usuario en tiempo de ejecución
     <script type="text/javascript">
-      var frase1='En las puertas de la tierra media, se cuenta la leyenda del shakha, del señor obtuso y del leru partio.';
-      var frase2=' Ambiguo durante siglos fue abducido.';
-      var frase3=" Y buscado por muchos.";
-      var frase4=" Y ha acabado en manos de quien meaba mas que bebía.";
+      var frase1='En las puertas de la tierra media, se cuenta la leyenda del shakha, del señor obtuso y del leru partio. ';
+      var frase2='Ambiguo durante siglos fue abducido. ';
+      var frase3="Y buscado por muchos. ";
+      var frase4="Y ha acabado en manos de quien meaba mas que bebía. ";
       var frases=frase1+frase2+frase3+frase4;
       document.write(frases);
       var entrada=prompt("Introduce el número de letras que contendra la palabra");
-      var expr=new RegExp(`\\b([a-zá-úñ]{${entrada}})\\b`,"gim");
+      //-------------------(^| ) => Significa que cogera la primera palabra o que tenga antes un espacio.
+      var expr=new RegExp(`(^| )([a-zá-úñ]{${entrada}})(?=[ ,;\\.])`,"gim");
+      //Otra forma de representar la misma expresión pero con sintaxis antigua de comillas.
+      var expr2=new RegExp("(^| )([a-zá-úñ]{"+entrada+"})(?=[ ,;\\.])","gim");
       var result = expr.exec(frases);
       var f="";
       while (result!=null) {
-        f+=result[0]+ " ";
+        f+=result[2]+ " ";
         result=expr.exec(frases);
       }
       alert(f);
