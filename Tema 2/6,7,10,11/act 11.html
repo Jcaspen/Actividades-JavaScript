@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 11</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            /*var total=0;
+            //-------Opción 1-------
+            var numero =prompt("Introduce un numero:");
+            var real = parseFloat(numero);
+            var real2 = real.toFixed(0);
+            var numero2 = real2.toString();
+            var ln= numero2.length;
+            for (var i = 0; i < ln; i++) {
+                total += parseInt(numero2[i]);
+            }
+
+            alert(total);
+*/
+            //------Opción 2------
+            var total=0;
+            var numero =prompt("Introduce un numero:");
+            var ln= numero.length;
+            for (var i = 0; i < ln; i++) {
+                if(numero[i] != isNaN()){
+                    total += parseInt(numero[i]);
+                }
+            }
+
+            alert(total);
+        </script>
+
+    </body>
+</html>
