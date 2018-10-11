@@ -77,9 +77,13 @@
         case "8":
 
           //Añadir paso inverso!
-          var oper =Number(prompt("Introduce el valor a cambiar"));
           var base =Number(prompt("Introduce la base(binario, octal, hexadecimal, decimal)"));
+          var oper =Number(prompt("Introduce el valor a cambiar"));
+          var expr=new RegExp(`(2|8|10|16)`);
+          var expreHex=new RegExp(`[0-9a-f]+`,"i");
+          if()
           var total8=oper.toString(base);
+
           alert(total8);
           break;
 
