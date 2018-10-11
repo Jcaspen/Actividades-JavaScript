@@ -12,19 +12,14 @@
             var cuarta=prompt("Introduce otra cadena");
             var quinta=prompt("Introduce otra cadena");
             var frase= primera+segunda+tercera+cuarta+quinta;
+            var expr=new RegExp(`[a-zá-úñ]+`,"gi")
+            var result=[];
 
-            function repartir(entrada){
-                var reparto=[];
-                var contador=0;
-                var aux="";
-            for (let i = 0; i < entrada.length;i++) {
-                aux = entrada.indexOf(entrada[i]);
-                
-
-              }
+            for (let i = 0; i < frase.length;i++) {
+                result=frase.match(expr);
             }
 
-            repartir(frase);
+            document.write(result);
 
         </script>
     </body>
