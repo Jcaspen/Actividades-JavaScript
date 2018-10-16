@@ -5,22 +5,7 @@
         <title>Actividad 2</title>
     </head>
     <body>
-        <script type="text/javascript">
-            function fun(entrada){
-                var encontrado=window.find(entrada);
-                do{
-                    encontrado=window.find(entrada);
-                    var r = confirm("Quieres seguir buscando?");
-                    if (r == true) {
-                        window.find(entrada);
-                        alert("Se encontro una");
-                    } else {
-                        alert("Adios");
-                        break;
-                    }
-                } while (encontrado);
-            }
-        </script>
+
 
         <form name="search" onSubmit="fun(this.string.value)">
         <input name="string" id="buscador" type="text">
@@ -43,4 +28,20 @@
          Se empezó a disparar con los primeros rumores de la compra por parte de Microsoft y ha alcanzado picos donde se multiplica por diez el ritmo habitual.
         </p>
     </body>
+    <script type="text/javascript">
+        function fun(entrada){
+            var encontrado=window.find(entrada);
+            do{
+                encontrado=window.find(entrada);
+                var r = confirm("Quieres seguir buscando?");
+                if (r == true) {
+                    window.find(entrada);
+                    alert("Se encontro una");
+                } else {
+                    alert("Adios");
+                    break;
+                }
+            } while (encontrado);
+        }
+    </script>
 </html>
