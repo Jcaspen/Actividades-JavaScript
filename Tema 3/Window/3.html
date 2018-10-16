@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title id="hora"></title>
+    </head>
+    <body onload="hora()">
+        <script type="text/javascript">
+
+            function hora(){
+                mostrar();
+                t = setTimeout(hora,1000);
+            }
+
+            function parar() {
+                clearTimeout(t);
+            }
+
+            function mostrar() {
+                var hoy = new Date();
+                var h = hoy.getHours();
+                var m = hoy.getMinutes();
+                var s = hoy.getSeconds();
+                document.title=`La hora es: ${h}:${m}:${s}.`;
+            }
+        </script>
+
+        <input type="button" value="Parar" onclick="parar()">
+    </body>
+</html>
