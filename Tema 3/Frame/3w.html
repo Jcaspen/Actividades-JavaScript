@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Marco3</title>
+    </head>
+    <body>
+        <form>
+            <label value="Base">Base: </label>
+            <input type="text" id="base" name="Base" value="">
+            <label value="Exp">Exponente: </label>
+            <input type="text" id="exponente" name="Exp" value="">
+        </form>
+
+        <form>
+            <input type="submit" name="calculo" value="Calcular" onclick="Calcular()">
+            <input type="text" name="calculo" id="resultado" >
+        </form>
+
+        <script type="text/javascript">
+            function calcular() {
+                var base =document.forms[0].elements[1].value;
+                var exponente=document.forms[0].elements[3].value;
+                var result=Math.pow(base,exponente);
+                document.forms[1].elements[1].value =result;
+
+            }
+        </script>
+
+    </body>
+</html>

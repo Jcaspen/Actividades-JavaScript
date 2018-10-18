@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 2</title>
+    </head>
+    <body onload="ran()">
+        <h1>PAGINA ALEATORIA ENTRE HOTMAIL, GMAIL Y YAHOO</h1>
+
+
+
+        <script type="text/javascript">
+
+            function ran() {
+
+                var aleatorio = Math.floor(Math.random()*3)
+                switch (aleatorio) {
+                    case 0:
+                        document.write("<h3><a href=\"https://outlook.live.com\" target=\"_blank\">Página aleatoria</a></h3>");
+                        break;
+                    case 1:
+                        document.write("<h3><a href=\"https://mail.google.com\" target=\"_blank\">Página aleatoria</a></h3>");
+                        break;
+                    case 2:
+                        document.write("<h3><a href=\"https://es.yahoo.com\" target=\"_blank\">Página aleatoria</a></h3>");
+                        break;
+                    default:
+                        alert("No encontrado!");
+                        break;
+
+                }
+            }
+        </script>
+    </body>
+</html>
