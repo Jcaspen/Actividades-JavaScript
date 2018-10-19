@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>aux</title>
+    </head>
+    <body>
+        <form>
+            <input type="color" name="" value="" onchange="cambiarColor()">
+        </form>
+
+        <script type="text/javascript">
+            function cambiarColor() {
+                window.opener.document.body.style.background=document.forms[0].elements[0].value;
+                opener.document.forms[0].elements[0].value=document.forms[0].elements[0].value;
+            }
+        </script>
+    </body>
+</html>

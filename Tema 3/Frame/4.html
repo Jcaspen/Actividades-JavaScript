@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 4</title>
+    </head>
+    <body>
+
+        <form>
+            <input type="text" name="dado1" value="0">
+            <input type="text" name="dado2" value="0">
+            <input type="button" name="Boton" value="Lanzar Dados" onclick="lanzar()">
+        </form>
+
+
+        <script type="text/javascript">
+
+            for (var i= 2; i < 13; i++) {
+                document.write(`<p>El resultado ${i} ha salido <b id="${i}">0</b> veces</p>`);
+            }
+
+            function lanzar() {
+
+                var dado=0;
+                for (var m = 0; m < 10; m++) {
+                    var dado1 = Math.floor(Math.random()*6+1);
+                    var dado2 = Math.floor(Math.random()*6+1);
+                    document.forms[0].elements[0].value=dado1;
+                    document.forms[0].elements[1].value=dado2;
+                    var sum=dado1+dado2;
+                    document.getElementById(sum).innerHTML=parseInt(document.getElementById(sum).innerHTML)+1;
+                }
+                document.forms[0].elements[2].disabled=true;
+            }
+        </script>
+
+    </body>
+</html>

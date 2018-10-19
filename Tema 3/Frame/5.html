@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 5</title>
+    </head>
+    <body onload="ciclo()">
+        <h1>Presente y Futuro</h1>
+        <img src="" id="3">
+
+        <script type="text/javascript">
+        setInterval(ciclo,1000);
+        function ciclo() {
+
+            var alea=Math.floor(Math.random()*3);
+                switch (alea) {
+                    case 0:
+                        document.getElementById('3').src="A.jpeg";
+                        break;
+                    case 1:
+                        document.getElementById('3').src="B.jpeg";
+                        break;
+                    case 2:
+                        document.getElementById('3').src="C.jpg";
+                        break;
+                    default:
+                        alert("Error");
+
+                }
+            }
+        </script>
+    </body>
+
+</html>
