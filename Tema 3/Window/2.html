@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 2</title>
+    </head>
+    <body>
+
+
+        <form name="search" onSubmit="fun(this.string.value)">
+        <input name="string" id="buscador" type="text">
+        <input type="submit" value="Buscar">
+        </form>
+
+         <input type="button" value="Wiki GitLab" onclick="location.assign(`https://es.wikipedia.org/wiki/GitLab`)">
+         <h1>GitLab, la alternativa a GitHub a la que están migrando los desarrolladores temerosos de Microsoft</h1>
+         <p id="p1">
+         Tras muchos rumores que daban casi por ejecutada la compra de GitHub por parte de Microsoft, ha llegado la confirmación oficial,
+         y con ella, las primeras reacciones desde el mundo del desarrollo. En principio, Microsoft ha manifestado su voluntad de que GitHub siga operando de forma independiente,
+         manteniendo su marca y sin cambiar su filosofía open source. Algo que entronca en la "nueva" Microsoft de Satya Nadella, de menos Windows y más nube,
+         menos smartphones intrascendentes y más inteligencia artificial, menos echar pestes del código abierto y más colaborar con él.
+         Esto no parece haber sido suficiente para una cantidad de desarrolladores que no sabemos si es alta o es baja,
+         pero sí sabemos que es lo suficientemente relevante como para haber provocado una oleada de opiniones que van en la línea de que es hora de marcharse de GitHub
+         y abrazar GitLab, la principal alternativa. El motivo de fondo, el rechazo a Microsoft o el temor a que se pierda el espíritu de código abierto.
+         Es más: GitLab, el otro gran beneficiado de esta operación, ha abierto estos días una cuenta de Twitter destinada específicamente a ofrecer soporte
+         a los desarrolladores que quieren migrar sus repositorios a su plataforma.
+         En este gráfico publicado por la empresa podemos ver la evolución del número de repositorios importados.
+         Se empezó a disparar con los primeros rumores de la compra por parte de Microsoft y ha alcanzado picos donde se multiplica por diez el ritmo habitual.
+        </p>
+    </body>
+    <script type="text/javascript">
+        function fun(entrada){
+            var encontrado=window.find(entrada);
+            do{
+                encontrado=window.find(entrada);
+                var r = confirm("Quieres seguir buscando?");
+                if (r == true) {
+                    window.find(entrada);
+                    alert("Se encontro una");
+                } else {
+                    alert("Adios");
+                    break;
+                }
+            } while (encontrado);
+        }
+    </script>
+</html>

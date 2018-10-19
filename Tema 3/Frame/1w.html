@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Auxiliar</title>
+    </head>
+    <body>
+        <h1>Introduce una cantidad de píxeles</h1>
+        <form>
+            <input type="text" name="Ingreso" value="">
+            <input type="submit" name="" value="Derecha" onclick="recibeIngreso()">
+            <input type="submit" name="" value="Izquierda" onclick="recibeIngreso2()">
+        </form>
+
+
+        <script type="text/javascript">
+
+            function recibeIngreso() {
+                var valorFormulario = document.forms[0].elements[0].value;
+                var expr=/\d+/ig;
+                if (expr.test(valorFormulario)) {
+                    moveBy(valorFormulario,0);
+                }else {
+                    alert("El parámetro introducido no es un número");
+                }
+            }
+
+            function recibeIngreso2() {
+                var valorFormulario = document.forms[0].elements[0].value;
+                var expr=/\d+/ig;
+
+                var aux=valorFormulario*2;
+                var aux2=valorFormulario-aux;
+                if (expr.test(valorFormulario)) {
+                    moveBy(aux2,0);
+                }else {
+                    alert("El parámetro introducido no es un número");
+                }
+            }
+        </script>
+    </body>
+</html>
