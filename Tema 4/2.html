@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 2</title>
+    </head>
+    <body>
+
+        Crea un script donde declares una función obtenerImporteConImpuestos que reciba
+        dos parámetros: el importe sin impuestos (numérico) y el tipo de producto (numérico
+        entero). La función debe mostrar por pantalla el importe sin impuestos más el 21% si el
+        tipo de producto es 1, ó el importe sin impuestos más el 10% si el tipo de producto es 2, ó
+        el importe sin impuestos más el 5% si el tipo de producto es 3. Si el usuario no especifica el
+        tipo de producto, consideramos que es de tipo 1. (función declarada)
+
+        <script type="text/javascript">
+            var importe=parseFloat(prompt("Introduce un importe"));
+            var tipo=parseInt(prompt("Introduce el Tipo de IVA (1,2,3)"));
+
+            obtenerImporteConImpuestos(importe,tipo=1);
+
+            function obtenerImporteConImpuestos(importe,tipo) {
+                var IVA=0.21;
+                var IVAR=0.10;
+                var IVASR=0.05;
+
+                switch (tipo) {
+                    case 1:
+                        var result=(importe*IVA)+importe;
+                        alert(result.toFixed(2));
+                        break;
+                    case 2:
+                        var result=(importe*IVAR)+importe;
+                        alert(result.toFixed(2));
+                        break;
+                    case 3:
+                        var result=(importe*IVASR)+importe;
+                        alert(result.toFixed(2));
+                        break;
+                    default:
+                        alert("Error de tipo sipollo");
+
+                }
+
+            }
+
+
+        </script>
+    </body>
+</html>

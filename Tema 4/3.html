@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 3</title>
+    </head>
+    <body>
+
+        Crea un script donde declares una función obtenerImporteConImpuestos2 que reciba
+        un parámetro: el importe sin impuestos (numérico). La función debe devolver un array con
+        valor undefined para el índice 0, el importe sin impuestos más el 21% para el índice 1, el
+        importe sin impuestos más el 10% para el índice 2, ó el importe sin impuestos más el 5%
+        para el índice 3. Invoca la función haciendo que se muestre el contenido del array por
+        pantalla. (función expresada)
+
+        <script type="text/javascript">
+            var importe=parseInt(prompt("Introduce un importe"));
+            var tipo=parseInt(prompt("Introduce el Tipo de IVA (1,2,3)"));
+
+            //funcioncilla(importe,tipo);
+
+            var funcioncilla = function (importe,tipo=1) {
+                var IVA=0.21;
+                var IVAR=0.10;
+                var IVASR=0.05;
+                switch (tipo) {
+                    case 1:
+                        var result=[undefined,((importe*IVA)+importe)];
+                        document.write((result));
+                        break;
+                    case 2:
+                        var result=[undefined,,((importe*IVAR)+importe)];
+                        document.write((result));
+                        break;
+                    case 3:
+                        var result=[undefined,,,((importe*IVASR)+importe)];
+                        document.write((result));
+                        break;
+                    default:
+                        alert("Error de tipo sipollo");
+
+                }
+
+            }
+
+            funcioncilla(importe,tipo);
+        </script>
+    </body>
+</html>
