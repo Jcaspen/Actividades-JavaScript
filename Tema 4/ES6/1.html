@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 1</title>
+    </head>
+    <body>
+
+        <input type="button" name="botoncito" value="Crear Lista" onclick="crearLista()">
+        <input type="button" id="men" name="menor" value="Menor" onclick="menor()" disabled=true>
+        <input type="button" name="nombrecillo" id="trip" value="Triple" onclick="n()" disabled=true>
+        <ul id="lista">
+
+        </ul>
+
+        <script type="text/javascript">
+            var n=()=>{for (var i = 0; i < res.length; i++) {
+                var resultadillo=res[i]*3;
+                console.log(resultadillo);
+            }};
+
+            function menor() {
+
+
+                var m=res.sort();
+                console.log(m[0]);
+            }
+
+            function crearLista() {
+                var elementosEntrada=prompt("Introduce una serie de elementos separados por ,");
+                res=elementosEntrada.split(",");
+                for (var i=0; i< res.length; i++) {
+                    var result2=res[i];
+                    document.getElementById('lista').innerHTML+=`<li id="${i}">${result2}</li>`;
+
+                }
+                document.getElementById('men').disabled=false;
+                document.getElementById('trip').disabled=false;
+            }
+        </script>
+    </body>
+</html>
