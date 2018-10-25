@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 6</title>
+    </head>
+    <body>
+        <input type="button" value="Sumatorio" onclick="calcularSuma()">
+        <input type="button" name="" value="Invertir" onclick="invertir()">
+        <input type="button" name="" value="Buscar" onclick="buscar()">
+        <script type="text/javascript">
+            var arra=[];
+            for (var i = 0; i < 22; i++) {
+                if (i%2!=0) {
+                    arra.push(i);
+                }
+            }
+
+
+            function calcularSuma() {
+                var result=0;
+                for (var i = 0; i < arra.length; i++) {
+                    var result=result+arra[i];
+                }
+                document.write(result);
+            }
+
+            function invertir() {
+                document.write(arra.reverse());
+            }
+
+            function buscar() {
+                var entrada=parseInt(prompt("Introduce un valor a buscar en el array"));
+                if (arra.indexOf(entrada)==-1) {
+                    alert("valor no encontrado");
+                }else{
+                    var resultado=arra.indexOf(entrada);
+                    delete arra[resultado];
+                }
+                document.write(arra);
+
+            }
+        </script>
+    </body>
+</html>
