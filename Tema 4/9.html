@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 9</title>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+            function mostrar() {
+                var alumno1=[];
+                var arr=[];
+                for (var i = 1; i < 6; i++) {
+                    var entrada=prompt("Introduce el nombre de un alumno");
+                    var a=parseFloat(prompt("Introduce la nota de Daw para ese alumno"));
+                    var b=parseFloat(prompt("Introduce la nota de Diw para ese alumno"));
+                    var c=parseFloat(prompt("Introduce la nota de DeWec para ese alumno"));
+                    alumno1=new Array(entrada,a,b,c);
+                    arr[(i-1)]=alumno1;
+
+                }
+                pintarTabla(arr);
+            }
+
+
+            function pintarTabla(arr) {
+                document.write("<table width=200 border=1>");
+                for (var j = 0; j < arr.length; j++) {
+                    document.write("<tr>");
+                    for (var m = 0; m < arr[j].length; m++) {
+                        document.write("<td>" + arr[j][m] + "</td>")
+                    }
+
+                    document.write("</tr>");
+                }
+                document.write("</table>");
+            }
+
+            mostrar();
+
+        </script>
+    </body>
+</html>
