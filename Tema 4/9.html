@@ -24,11 +24,19 @@
 
 
             function pintarTabla(arr) {
-                document.write("<table width=200 border=1>");
+                document.write("<table border=1>");
+                document.write("<tr>");
+                document.write("<td>Alumno</td>");
+                document.write("<td>Nota DAW</td>");
+                document.write("<td>Nota DIW</td>");
+                document.write("<td>Nota DeWec</td>");
+                document.write("</tr>");
                 for (var j = 0; j < arr.length; j++) {
                     document.write("<tr>");
+
                     for (var m = 0; m < arr[j].length; m++) {
-                        document.write("<td>" + arr[j][m] + "</td>")
+
+                        document.write(`<td> ${arr[j][m]} </td>`);
                     }
 
                     document.write("</tr>");
