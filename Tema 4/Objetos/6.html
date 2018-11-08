@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 6</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function Persona(nombre,edad,genero) {
+                this.nombre=nombre;
+                this.edad=edad;
+                this.genero=genero;
+             }
+
+            Persona.prototype.obtDetalles=function() {
+                 for (var i in this) {
+                     if (this.hasOwnProperty(i)) {
+                         console.log(`${i}:${this[i]}`);
+                     }
+                 }
+             }
+
+            var personilla=new Persona("Matias",57,"terror");
+            personilla.obtDetalles();
+            console.log("<-------------------------->");
+
+            function Estudiante(curso,grupo,nombre,edad,genero) {
+                Persona.call(this,nombre,edad,genero);
+                this.curso=curso;
+                this.grupo=grupo;
+            }
+
+            Estudiante.prototype.registrar=function() {
+                 for (var i in this) {
+                     if (this.hasOwnProperty(i)) {
+                         console.log(`${i}:${this[i]}`);
+                     }
+                 }
+             }
+
+             var estudiantillo=new Estudiante("2ºDaw",2,"Chema",92,"comedia");
+             estudiantillo.registrar();
+             console.log("<-------------------------->");
+
+             function Profesor(asignatura,nivel,nombre,edad,genero) {
+                 Persona.call(this,nombre,edad,genero);
+                 this.asignatura=asignatura;
+                 this.nivel=nivel;
+             }
+
+            Profesor.prototype.asignar=function() {
+                  for (var i in this) {
+                      if (this.hasOwnProperty(i)) {
+                          console.log(`${i}:${this[i]}`);
+                      }
+                  }
+              }
+
+              var profesorcillo=new Profesor("DIW","Intermedio","Armando",21,"Varón");
+              profesorcillo.asignar();
+
+
+        </script>
+    </body>
+</html>

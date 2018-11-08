@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 5</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function Vehiculo(marca) {
+                this.marca=marca;
+            }
+
+            function Furgoneta(pax,marca) {
+                Vehiculo.call(this,marca);
+                this.pax=pax;
+            }
+            Furgoneta.prototype=new Vehiculo();
+
+            function Todoterreno(traccion,marca) {
+                Vehiculo.call(this,marca);
+                this.traccion=traccion;
+            }
+
+            Todoterreno.prototype=new Vehiculo();
+
+            var vh=new Vehiculo("Opel");
+            var fragoneta=new Furgoneta(7,"Borvaguen");
+            var toteleno=new Todoterreno(true,"Yip");
+
+            console.log(vh);
+            console.log(fragoneta);
+            console.log(toteleno);
+        </script>
+    </body>
+</html>

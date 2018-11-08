@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 7</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function Empleado(nombre ="", departamento="General") {
+                this.nombre=nombre;
+                this.departamento=departamento;
+             }
+
+            var empleadillo=new Empleado("Tomsom","Informatica");
+            var empleadillo2= new Empleado();
+            console.log(empleadillo);
+            console.log(empleadillo2);
+            console.log("<-------------------------->");
+
+            function Director(informes=[],nombre,departamento) {
+                Empleado.call(this,nombre,departamento);
+                this.informes=informes;
+            }
+
+            var directorcillo=new Director(["Trapichear","Timar"],"Tucson","General");
+            var directorcillo2= new Director();
+            console.log(directorcillo);
+            console.log(directorcillo2);
+            console.log("<-------------------------->");
+
+
+            function Trabajador(proyectos=[],nombre,departamento) {
+                Empleado.call(this,nombre,departamento);
+                this.proyectos=proyectos;
+            }
+
+            var trabajadorcito=new Trabajador(["descansar","trabajar"],"Buendia","Telefonia");
+            var trabajadorcito2= new Trabajador();
+            console.log(trabajadorcito);
+            console.log(trabajadorcito2);
+            console.log("<-------------------------->");
+
+            function Ingeniero(proyectos=[],nombre,departamento) {
+                Trabajador.call(this,nombre,departamento);
+                this.proyectos=proyectos;
+            }
+
+            var trabajadorcito=new Trabajador(["descansar","trabajar"],"Buendia","Telefonia");
+            var trabajadorcito2= new Trabajador();
+            console.log(trabajadorcito);
+            console.log(trabajadorcito2);
+            console.log("<-------------------------->");
+        </script>
+    </body>
+</html>
