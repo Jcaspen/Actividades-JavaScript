@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 1</title>
+    </head>
+    <body>
+        <input type="button" name="" value="Crear Array" onclick="crearArray()">
+        <script type="text/javascript">
+
+            function crearArray() {
+                var arr=[];
+                for (var i = 0; i < 10; i++) {
+                    arr.push(Math.floor(Math.random()*10));
+                }
+                console.log(arr);
+                var menoresA8= arr.filter(menoresAOcho);
+                alert(menoresA8);
+
+                var result= impares(arr);
+                document.write(result);
+
+            }
+
+            function menoresAOcho(arr) {
+                return arr < 8;
+            }
+
+            function impares(arr) {
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i]%2!=0) {
+                            arr[i]="impar";
+                        }
+                    }
+                return arr;
+            }
+
+        </script>
+    </body>
+</html>

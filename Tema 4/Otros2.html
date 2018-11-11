@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 2</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var arr=[2,-2,3,5,9];
+            alert(arr.every(arr=> arr >=0));
+            var mult=arr.map(multipl);
+            console.log(mult);
+            document.write(multTodos(mult));
+
+            function multipl(arr){
+              return arr*3;
+          }
+
+
+          function multTodos(arr) {
+            return arr.reduce(function(total,valor){return total*valor;});
+          }
+
+
+        </script>
+    </body>
+</html>
