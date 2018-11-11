@@ -40,16 +40,20 @@
             console.log(trabajadorcito2);
             console.log("<-------------------------->");
 
-            function Ingeniero(proyectos=[],nombre,departamento) {
-                Trabajador.call(this,nombre,departamento);
-                this.proyectos=proyectos;
+            function Ingeniero(maquina="",proyectos=[],nombre,departamento) {
+                Trabajador.call(this,proyectos,nombre,departamento);
+                this.maquina=maquina;
+                this.departamento="ingenieria";
+
             }
 
-            var trabajadorcito=new Trabajador(["descansar","trabajar"],"Buendia","Telefonia");
-            var trabajadorcito2= new Trabajador();
-            console.log(trabajadorcito);
-            console.log(trabajadorcito2);
+            var ingeni=new Ingeniero("Elevadora",["descansar","trabajar"],"Buendia","Telefonia");
+            var ingeni2= new Ingeniero();
+            console.log(ingeni);
+            console.log(ingeni2);
             console.log("<-------------------------->");
+
+
         </script>
     </body>
 </html>
