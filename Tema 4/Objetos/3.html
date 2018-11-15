@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 3</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            Array.prototype.eliminar=function (valor) {
+                var a=this;
+                for (var i = 0; i < a.length; i++) {
+                    if(a[i]==valor){
+                        delete a[i];
+                    }
+                }
+                return a;
+            }
+
+            var prueba= ["a",2,6,9];
+            console.log(prueba.eliminar(2));
+        </script>
+    </body>
+</html>
