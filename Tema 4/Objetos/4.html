@@ -6,7 +6,7 @@
     </head>
     <body>
         <script type="text/javascript">
-            function Factura(cliente,elementos=[],info) {
+            function Factura(cliente,elementos,info) {
                 this.cliente=cliente;
                 this.elementos=elementos;
                 this.info=info;
@@ -17,6 +17,12 @@
                 this.direccion=direccion;
                 this.telefono=telefono;
                 this.nif=nif;
+            }
+
+            function Elemento(descripcion,cantidad,precio) {
+                this.descripcion=descripcion;
+                this.cantidad=cantidad;
+                this.precio=precio;
             }
 
             function Info(baseImp=0,iva=21, total=0,formaDePago="contado") {
@@ -35,19 +41,24 @@
 
             Factura.prototype.empresa = new Empresa("Reventao SL","Av/del iesdonana",856948372,"85987654G");
             Factura.prototype.calcularTotal= function(){
-                var ivilla=((this.info.baseImp*(this.elementos[1]*this.elementos[2]))*this.info.iva/100);
-                this.info.total=ivilla+this.info.baseImp*(this.elementos[1]*this.elementos[2]);
+
+                for (var i = 0; i < this.elementos.length; i++) {
+                    this.info.baseImp+=this.elementos[i].cantidad*this.elementos[i].precio;
+                }
+                this.info.total=(this.info.baseImp*((this.info.iva/100)+1)).toFixed(2);
             };
 
             var c=new Cliente("Castillo","Perico","76587656","76589876F");
             var i=new Info(1,21);
+            var e=[new Elemento("Aceitunas",10,10), new Elemento("teclado",2,20)];
 
-            var f= new Factura(c,['Aceitunas',10,10],i);
-            f.calcularTotal();
-            Factura.prototype.cuantoEs=function(){
+            var f= new Factura(c,e,i);
+
+            Factura.prototype.cuantoEs=function(factura){
+                factura.calcularTotal();
                 alert(this.info.total);
             };
-            f.cuantoEs();
+            f.cuantoEs(f);
 
         </script>
     </body>
