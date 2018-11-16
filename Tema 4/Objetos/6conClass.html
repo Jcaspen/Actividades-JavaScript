@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 6</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            class Persona {
+                constructor(nombre, edad, genero) {
+                    this.nombre= nombre;
+                    this.edad=edad;
+                    this.genero=genero;
+                }
+
+                obtDetalles() {
+                    for (var i in this) {
+                        console.log(`${i}:${this[i]}`);
+                    }
+                }
+            }
+
+
+            var personilla=new Persona("Matias",57,"terror");
+            personilla.obtDetalles();
+            console.log("<-------------------------->");
+
+            class Estudiante extends Persona {
+                constructor(curso,grupo,nombre,edad,genero) {
+                    super(nombre,edad,genero);
+                    this.curso=curso;
+                    this.grupo=grupo;
+
+                }
+                 registrar() {
+                    for (var i in this) {
+                        console.log(`${i}:${this[i]}`);
+                    }
+                }
+            }
+
+
+             var estudiantillo=new Estudiante("2ºDaw",2,"Chema",92,"comedia");
+             estudiantillo.registrar();
+             console.log("<-------------------------->");
+
+            class Profesor extends Persona {
+                constructor(asignatura,nivel,nombre,edad,genero) {
+                    super(nombre,edad,genero);
+                    this.asignatura=asignatura;
+                    this.nivel=nivel;
+
+                }
+                asignar() {
+                    for (var i in this) {
+                        console.log(`${i}:${this[i]}`);
+                    }
+                }
+            }
+
+              var profesorcillo=new Profesor("DIW","Intermedio","Armando",21,"Varón");
+              profesorcillo.asignar();
+
+
+        </script>
+    </body>
+</html>

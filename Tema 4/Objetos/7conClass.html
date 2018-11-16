@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 7</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            class Empleado {
+                constructor(nombre="",departamento="General") {
+                    this.nombre=nombre;
+                    this.departamento=departamento;
+                }
+            }
+
+            var empleadillo=new Empleado("Tomsom","Informatica");
+            var empleadillo2= new Empleado();
+            console.log(empleadillo);
+            console.log(empleadillo2);
+            console.log("<-------------------------->");
+
+            class Director extends Empleado {
+                constructor(informes=[],nombre,departamento) {
+                    super(nombre,departamento);
+                    this.informes=informes;
+                }
+            }
+
+
+            var directorcillo=new Director(["Trapichear","Timar"],"Tucson","General");
+            var directorcillo2= new Director();
+            console.log(directorcillo);
+            console.log(directorcillo2);
+            console.log("<-------------------------->");
+
+            class Trabajador extends Empleado {
+                constructor(proyectos=[],nombre,departamento) {
+                    super(nombre,departamento);
+                    this.proyectos=proyectos;
+                }
+            }
+
+            var trabajadorcito=new Trabajador(["descansar","trabajar"],"Buendia","Telefonia");
+            var trabajadorcito2= new Trabajador();
+            console.log(trabajadorcito);
+            console.log(trabajadorcito2);
+            console.log("<-------------------------->");
+
+            class Ingeniero extends Trabajador {
+                constructor(maquina="",proyectos=[],nombre,departamento) {
+                    super(proyectos,nombre,departamento);
+                    this.maquina=maquina;
+                    this.departamento="Ingenieria";
+                }
+            }
+
+
+            var ingeni=new Ingeniero("Elevadora",["descansar","trabajar"],"Buendia","Telefonia");
+            var ingeni2= new Ingeniero();
+            console.log(ingeni);
+            console.log(ingeni2);
+            console.log("<-------------------------->");
+
+
+        </script>
+    </body>
+</html>
