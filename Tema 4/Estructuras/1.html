@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 1</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var map = new Map();
+            map.set('DAW', 'Despliegue de aplicaciones web');
+            map.set('DIW', 'Diseño de interfaces web');
+            map.set('DWECL', 'Desarrollo web en entorno cliente');
+            map.set('DWESE', 'Desarrollo web en entorno servidor');
+            map.set('EIE', 'Empresas, iniciativa emprendedora');
+
+            function mostrar(value,key,map) {
+                console.log(`Abreviatura: ${key}, Denominación: ${value}`);
+            }
+
+            console.log(map.size);
+            console.log("-------------------");
+            console.log(map.forEach(mostrar));
+            console.log("-------------------");
+            console.log(map.keys());
+            console.log("-------------------");
+            console.log(map.values());
+            console.log("-------------------");
+            console.log(map.has('DAW'));
+            if(map.has('DAW')){
+                map.delete('DAW');
+                console.log("DAW borrado correctamente");
+            }
+            console.log("-------------------");
+            console.log(map.forEach(mostrar));
+
+        </script>
+    </body>
+</html>

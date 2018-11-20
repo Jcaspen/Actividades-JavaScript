@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 3</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var modulo1={
+                nombre: "Despliegue de aplicaciones web"
+            };
+            var modulo2={
+                nombre: "Diseño de interfaces web"
+            };
+            var modulo3={
+                nombre: "Desarrollo web en entorno cliente"
+            };
+            var modulo4={
+                nombre: "Desarrollo web en entorno servidor"
+            };
+            var modulo5={
+                nombre: "Empresas, iniciativa emprendedora"
+            };
+            var alumno1= new Set();
+            alumno1.add(modulo5);
+            alumno1.add(modulo2);
+            console.log(alumno1.values());
+            console.log(`El alumno Pepe tiene aprobadas ${alumno1.size} asignaturas`);
+            console.log("-------------------");
+            console.log("-------------------");
+            console.log("-------------------");
+            var alumno2= new Set();
+            alumno2.add(modulo3);
+            alumno2.add(modulo2);
+            alumno2.add(modulo4);
+            console.log(alumno2.values());
+            console.log(`El alumno Gallego tiene aprobadas ${alumno2.size} asignaturas`);
+        </script>
+    </body>
+</html>

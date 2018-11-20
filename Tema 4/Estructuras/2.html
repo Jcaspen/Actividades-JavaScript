@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 2</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var modulo1={
+                nombre: "Despliegue de aplicaciones web",
+                duracion: 100
+            };
+            var modulo2={
+                nombre: "Diseño de interfaces web",
+                duracion: 200
+            };
+            var modulo3={
+                nombre: "Desarrollo web en entorno cliente",
+                duracion: 300
+            };
+            var modulo4={
+                nombre: "Desarrollo web en entorno servidor",
+                duracion: 200
+            };
+            var modulo5={
+                nombre: "Empresas, iniciativa emprendedora",
+                duracion: 150
+            };
+
+            var mapilla= new WeakMap();
+            mapilla.set(modulo1, 3);
+            mapilla.set(modulo2, 5);
+            mapilla.set(modulo3, 9);
+            mapilla.set(modulo4, 1);
+            mapilla.set(modulo5, 7);
+
+            console.log(mapilla.get(modulo1));
+            console.log(mapilla.get(modulo2));
+            console.log(mapilla.get(modulo3));
+            console.log(mapilla.get(modulo4));
+            console.log(mapilla.get(modulo5));
+
+        </script>
+    </body>
+</html>
