@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 4</title>
+        <script>
+            window.onload = function(){
+                document.getElementById('ima1').addEventListener('mouseover', function(){console.log(ima1.src)});
+                document.getElementById('ima2').addEventListener('mouseover', function(){console.log(ima2.src)});
+            };
+        </script>
+    </head>
+    <body>
+        <div>
+            <img src="1.jpg" width="300" height="600" id="ima1">
+            <img src="2.png" width="600" height="500" id="ima2">
+        </div>
+    </body>
+</html>

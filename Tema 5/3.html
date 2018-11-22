@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 3</title>
+        <script>
+            window.oncontextmenu = apagar;
+            function apagar(e)
+            {
+                var evento = e || window.event;
+                evento.preventDefault();
+                console.log(evento.type);
+
+            }
+        </script>
+    </head>
+    <body>
+        <div id="contenidos" style="width:150px; height:60px; border:thin solid silver">
+            <button type="button" name="button">CAJA</button>
+
+        </div>
+    </body>
+</html>

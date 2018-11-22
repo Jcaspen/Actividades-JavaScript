@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 6</title>
+        <script>
+    
+            window.onmousedown=function(e) {
+                var evento = e || window.event;
+                console.log(evento.type)
+                document.getElementById('ima1').src="1.jpg";
+            }
+            window.onmouseup=function(e) {
+                var evento = e || window.event;
+                console.log(evento.type)
+                document.getElementById('ima1').src="2.png";
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <img src="1.jpg" width="300" height="600" id="ima1">
+    </body>
+</html>
