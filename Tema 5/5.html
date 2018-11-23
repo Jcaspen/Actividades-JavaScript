@@ -12,16 +12,19 @@
         <script>
             window.onload = function(){
                 window.addEventListener('click', function(e){
+                    var e = e || window.event;
                     cuadro.style.background='#FFFF00';
                     cuadro.innerHTML = `Ventana (${e.clientX},${e.clientY}) y pantalla (${e.screenX},${e.screenY})`;
                 });
 
                 window.addEventListener('mousemove', function(e){
+                    var e = e || window.event;
                     cuadro.style.background='#FFFFFF';
                     cuadro.innerHTML = "";
                 });
 
                 window.addEventListener('keydown', function(e){
+                    var e = e || window.event;
                     cuadro.style.background='#CCE6FF';
                     cuadro.innerHTML = `Tecla: ${e.code}, Codigo: ${e.keyCode}`;
                 });

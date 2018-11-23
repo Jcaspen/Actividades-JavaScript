@@ -4,10 +4,16 @@
         <meta charset="utf-8">
         <title>Actividad 4</title>
         <script>
+        var ima=document.getElementsByTagName('img');
             window.onload = function(){
-                document.getElementById('ima1').addEventListener('mouseover', function(){console.log(ima1.src)});
-                document.getElementById('ima2').addEventListener('mouseover', function(){console.log(ima2.src)});
+                for (var i = 0; i < ima.length; i++) {
+                    ima[i].addEventListener('mouseover',mostrar);
+                }
             };
+
+            function mostrar() {
+                console.log(this.src);
+            }
         </script>
     </head>
     <body>

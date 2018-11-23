@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 13</title>
+    </head>
+    <style media="screen">
+        #pantalla{
+            background:#FFFFFF;
+        }
+    </style>
+
+    <script>
+        var in = document.form[0].getElementsByTagName;
+
+        window.onload = function(){
+            for (var i = 0; i < in.length; i++) {
+                in[i].addEventListener('click',color);
+            }
+        };
+
+        function color(opc) {
+            var o= opc;
+            pantalla.style.background=document.getElementById('opc2').value;
+        }
+
+    </script>
+    <body id="pantalla">
+        <form id="f1">
+          <label for="">Selecciona un color:</label> <br>
+          <input type="radio" name="opci" id="opc1" value="#8A0829" checked> Rojo<br>
+          <input type="radio" name="opci" id="opc2" value="#088A29">Verde<br>
+          <input type="radio" name="opci" id="opc3" value="#013ADF">Azul
+        </form>
+        <br>
+        <form id="f2">
+            <label for="elec">Selecciona una Asignatura:</label>
+            <select class="option" name="elec">
+                <option value="diw">DIW</option>
+                <option value="daw">DAW</option>
+                <option value="dewecl">DEWECL</option>
+                <option value="dewese">DWESE</option>
+                <option value="eie">EIE</option>
+            </select>
+        </form>
+        <br>
+        <form action="" method="post" id="f3">
+            <label for="">Selecciona los días con disponibilidad:</label><br>
+            <input type="checkbox" name="op" value="lunes">Lunes <br>
+            <input type="checkbox" name="op" value="martes">Martes <br>
+            <input type="checkbox" name="op" value="miercoles">Miercoles <br>
+            <input type="checkbox" name="op" value="jueves">Jueves <br>
+            <input type="checkbox" name="op" value="viernes">Viernes <br>
+        </form>
+        <br>
+        <form id="f4">
+            <label for="txt">Día preferente:</label>
+            <input type="text" name="txt" value="" readonly>
+        </form>
+        <br>
+        <form>
+            <input type="reset" name="b1" value="Enviar Información">
+            <input type="submit" name="b2" value="Comenzar de nuevo">
+            <input type="button" name="b3" value="Haz click sobre mí">
+        </form>
+    </body>
+</html>

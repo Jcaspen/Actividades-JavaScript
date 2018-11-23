@@ -5,12 +5,12 @@
         <title>Actividad 7</title>
         <script>
             window.onload = function(){
-                window.addEventListener('keydown', ver);
+                window.addEventListener('keyup', ver);
             };
-
+            //Mejorar para que capte 3 o mas teclas
             function ver(e) {
                 var evento = e || window.event;
-
+                evento.preventDefault();
                 if(evento.altKey){
                     console.log(`Alt + ${evento.code}`);
                 }
@@ -18,7 +18,7 @@
                 if(evento.ctrlKey){
                     console.log(`Ctrl + ${evento.code}`);
                 }
-            
+
                 if(evento.shiftKey){
                     console.log(`Shift + ${evento.code}`);
 

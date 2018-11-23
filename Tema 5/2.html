@@ -23,20 +23,27 @@
                 var evento = e || window.event;
                 console.log(evento.code);
                 switch (evento.code) {
-                    case 'ArrowUp'||'Numpad8':
-                        y-=10;
+                    case 'Numpad8':
+                    case 'ArrowUp':
+                        y-=20;
                         cuadro.style.top=y+'px';
                     break;
-                    case 'ArrowDown'||'Numpad2':
-                        y+=10;
+
+                    case 'ArrowDown':
+                    case 'Numpad2':
+                        y+=20;
                         cuadro.style.top=y+'px';
                     break;
-                    case 'ArrowRight'||'Numpad6':
-                        x+=10;
+
+                    case 'ArrowRight':
+                    case 'Numpad6':
+                        x+=20;
                         cuadro.style.left=x+'px';
                     break;
-                    case 'ArrowLeft' || 'Numpad4':
-                        x-=10;
+
+                    case 'ArrowLeft':
+                    case 'Numpad4':
+                        x-=20;
                         cuadro.style.left=x+'px';
                     break;
                 }
