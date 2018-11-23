@@ -2,12 +2,33 @@
 <html lang="es" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Actividad 2</title>
+        <title>Actividad 5</title>
+        <style media="screen">
+           #cuadro {
+               width: 300px;
+               height: 150px;
+           }
+       </style>
         <script>
+            window.onload = function(){
+                window.addEventListener('click', function(e){
+                    cuadro.style.background='#FFFF00';
+                    cuadro.innerHTML = `Ventana (${e.clientX},${e.clientY}) y pantalla (${e.screenX},${e.screenY})`;
+                });
 
+                window.addEventListener('mousemove', function(e){
+                    cuadro.style.background='#FFFFFF';
+                    cuadro.innerHTML = "";
+                });
+
+                window.addEventListener('keydown', function(e){
+                    cuadro.style.background='#CCE6FF';
+                    cuadro.innerHTML = `Tecla: ${e.code}, Codigo: ${e.keyCode}`;
+                });
+            };
         </script>
     </head>
     <body>
-
+        <button type="button" name="button" id="cuadro">¿Que será ahora?</button>
     </body>
 </html>

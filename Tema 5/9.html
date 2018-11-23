@@ -2,12 +2,21 @@
 <html lang="es" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Actividad 2</title>
+        <title>Actividad 9</title>
         <script>
+        window.onload = function(){
+            window.addEventListener('resize', mostrar);
+        };
 
+        function mostrar(e) {
+            var evento = e || window.event;
+            console.log(`${window.innerHeight} x ${window.innerWidth}`);
+            console.log("-------------------");
+
+        }
         </script>
     </head>
     <body>
-
+    
     </body>
 </html>

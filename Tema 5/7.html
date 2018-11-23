@@ -2,9 +2,29 @@
 <html lang="es" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Actividad 2</title>
+        <title>Actividad 7</title>
         <script>
+            window.onload = function(){
+                window.addEventListener('keydown', ver);
+            };
 
+            function ver(e) {
+                var evento = e || window.event;
+
+                if(evento.altKey){
+                    console.log(`Alt + ${evento.code}`);
+                }
+
+                if(evento.ctrlKey){
+                    console.log(`Ctrl + ${evento.code}`);
+                }
+            
+                if(evento.shiftKey){
+                    console.log(`Shift + ${evento.code}`);
+
+                }
+                console.log(evento.code);
+            }
         </script>
     </head>
     <body>
