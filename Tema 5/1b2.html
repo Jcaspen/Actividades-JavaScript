@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 2 Boletín 2</title>
+        <style media="screen">
+            div {
+                  margin: .2em 0;
+            }
+            div label {
+              width: 10%;
+              float: left;
+            }
+        </style>
+        <script>
+            window.onload=function () {
+                dnis.addEventListener('change' ,function() {
+                    var regexp=/^\d{2}\.\d{3}\.\d{3}-[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
+                    if(!regexp.test(this.value)){
+                        alert("El DNI no cumple con el formato");
+                    }
+                    return true;
+                });
+
+                nombres.addEventListener('change' ,function() {
+                    var regexp2= /^([a-zñá-ú]+( [a-zñá-ú]+){1-3}){1-2}$/i;
+                    if(!regexp2.test(this.value)){
+                        alert("El nombre no cumple con el formato");
+                    }
+                    return true;
+                });
+
+                fnacs.addEventListener('change' ,function() {
+                    var regexp3= /^(0[1-9])|([1-2][0-9])|(3[01])\/(0[1-9])|(1[0-2])\/\d{4}$/i;
+                    if(!regexp3.test(this.value)){
+                        alert("La fecha de nacimiento no cumple con el formato");
+                    }
+                    return true;
+                });
+
+                emails.addEventListener('change' ,function() {
+                    var regexp4= /[a-zñá-ú][a-zñá-ú0-9]+@[a-zñá-ú]+\.[a-zñá-ú]+/i;
+                    if(!regexp4.test(this.value)){
+                        alert("El email no cumple con el formato");
+                    }
+                    return true;
+                });
+                pags.addEventListener('change' ,function() {
+                    var regexp5= /http:\/\/www\.[a-zñá-ú0-9]+\.[a-zñá-ú0-9]/i;
+                    if(!regexp5.test(this.value)){
+                        alert("La Pagina Web no cumple con el formato");
+                    }
+                    return true;
+                });
+                passs.addEventListener('change' ,function() {
+                    var regexp6=/.+{8-10}/i;
+                    if(!regexp6.test(this.value)){
+                        alert("La contraseña no cumple con el formato");
+                    }
+                    return true;
+                });
+
+                cnpasss.addEventListener('change' ,function() {
+                    var regexp7=/\w+{8-10}/i;
+                    if(!regexp7.test(this.value)){
+                        alert("La contraseña no cumple con el formato");
+                    }
+                    return true;
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <form action="" method="post" id="formus" name="formValidad">
+                <br>
+                <label for="dni">DNI:</label>
+                <input type="text" name="dni" value="" id="dnis" required>
+                (Formato válido:99.999.999-X)
+                <br>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" value="" id="nombres" required>
+                (Introduzca al menos un nombre y un apellido. Max: 2 nombres y 2 apellidos)
+                <br>
+                <label for="fnac">F.Nac.:</label>
+                <input type="text" name="fnac" value="" id="fnacs" required>
+                (Formato válido:dd/mm/yyyy)
+                <br>
+                <label for="email">E-mail:</label>
+                <input type="text"  name="email" value="" id="emails" required>
+                (xxx@yyy.zzz)
+                <br>
+                <label for="pag">Pág. Web:</label>
+                <input type="text" name="pag" value="" id="pags" required>
+                (Formato válido: http://www.xxxx.yyyy)
+                <br>
+                <label for="pass">Contraseña:</label>
+                <input type="text" name="pass" value="" id="passs" required>
+                (Debe contener entre 8 y 10 caracteres)
+                <br>
+                <label for="cnpass">Confirmar contraseña:</label>
+                <input type="text" name="cnpass" value="" id="cnpasss" required>
+                (Debe contener entre 8 y 10 caracteres)
+                <br><br>
+                <input type="submit" action="" name="save" value="Guardar" method="post" required>
+                <input type="button" id="ve" name="ver" value="Ver">
+            </form>
+        </div>
+    </body>
+</html>
