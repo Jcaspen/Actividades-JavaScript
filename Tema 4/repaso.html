@@ -2,30 +2,86 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<title>Ejercicio Repaso</title>
+		<title>Repaso</title>
+		<script type="text/javascript">
+			var anyoActual, anyoInicial, interval;
+			const TIEMPO = 5;
+			const HORAS = 8760;
 
+
+			window.onload = function () {
+				inicializar();
+				para.onclick=parar;
+				function inicializar() {
+					iniciarNumeros();
+					iniciarFecha();
+					iniciarCuentaAtras();
+				}
+			};
+			function iniciarNumeros() {
+				numero1.value=parseInt(Math.random()*100)+1;
+			 	numero2.value=parseInt(Math.random()*100)+1;
+				numero3.value=parseInt(Math.random()*100)+1;
+			}
+
+			function iniciarFecha() {
+				anyoActual = (new Date()).getFullYear();
+				anyoInicial = parseInt(Math.random()*(anyoActual-1970))+1970;
+				horillas.value=anyoInicial;
+			}
+
+			function iniciarCuentaAtras() {
+				cuenta.value=TIEMPO;
+				interval = setInterval(function(){
+					if (document.forms[0].elements[6].value != 0) {
+						document.forms[0].elements[6].value--;
+					} else {
+						var w = open("", "", "height=100, width=300, top=10000, left=10000");
+						w.document.write('¡¡¡LA BOMBA HA EXPLOTADO!!!');
+						clearInterval(interval);
+					}
+				}, 1000);
+			}
+
+			function parar() {
+				clearInterval(interval);
+				var w = open("", "", "height=100, width=300, top=10000, left=10000");
+				var respuestas = 0;
+				if (numero1.value == numero4.value ||
+					numero2.value == numero4.value ||
+					numero3.value == numero4.value) {
+						respuestas++;
+					}
+					if ((anyoActual-anyoInicial)*HORAS==resphorillas.value) {
+						respuestas++;
+					}
+					w.document.write(`Has tardado ${TIEMPO-document.forms[0].elements[6].value} segundos.<br><br>
+						El numero de respuestas acertadas ha sido: ${respuestas}`);
+
+
+			}
+		</script>
 	</head>
 	<body>
 		<form>
 			<h1>QUIZ DOÑANA</h1>
 			<p>
 				<label>Pregunta 1: ¿Cuál es el número mayor?</label>
-				<input type ='number' readonly>
-				<input type ='number' readonly>
-				<input type ='number' readonly>
-				<input type='text'>
+				<input type ='number' id ="numero1" value="" readonly>
+				<input type ='number' id ="numero2" value="" readonly>
+				<input type ='number' id ="numero3" value="" readonly>
+				<input type='text' id="numero4">
 			</p>
 			<p>
 				<label>Pregunta 2: ¿Cuántas horas han pasado?</label>
-				<input type='text' readonly>
-				<input type='text' >
+				<input type='text' id ="horillas" readonly>
+				<input type='text' id="resphorillas">
 			</p>
 			<p>
 				<label>TIEMPO</label>
-				<input type='number'>
+				<input type='number' id="cuenta">
 			</p>
-			<input type='button'value="Parar">
-
+			<input type='button' id="para" value="Parar">
 		</form>
 
 	</body>
