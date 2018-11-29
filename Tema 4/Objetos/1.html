@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 1</title>
+    </head>
+    <body id="body">
+        <script type="text/javascript">
+            function Vehiculo(marca, modelo, color, anyo){
+                this.marca = marca;
+                this.modelo = modelo;
+                this.color = color;
+                this.anyo = anyo;
+                // this.arrancar = function() {
+                //     console.log(`El coche de marca ${this.marca}, modelo ${this.modelo}, de color ${this.color} ha arrancado.`);
+                // };
+            }
+
+            // c
+            var v1 = new Vehiculo("Seat", "Megane", "Gris", 2007);
+            var v2 = new Vehiculo("Opel", "Astra", "Negro", 2007);
+
+            // d
+            console.log(`Marca: ${v1.marca}`);
+
+            // e
+            console.log(`Color: ${v2['color']}`);
+
+            // f
+            Vehiculo.prototype.mostrarDatos = function() {
+                var toString = "Vehiculo";
+                for (var prop in this) {
+                    if (this.hasOwnProperty(prop)) {
+                        toString += ` | ${prop}: ${this[prop]}`;
+                    }
+                }
+                return toString;
+            };
+            console.log(v1.mostrarDatos());
+            console.log(v2.mostrarDatos());
+
+            // g
+            Vehiculo.prototype.acelerar = function(velocidad) {
+                var toString = `El coche {${this.mostrarDatos()}} ha acelerado hasta ${velocidad} km/h.`;
+                console.log(toString);
+            };
+            console.log(v1.mostrarDatos());
+            //v1.arrancar();
+            v1.acelerar(100);
+
+
+            // i
+            Vehiculo.prototype.cilindrada;
+
+            // j
+            Vehiculo.prototype.frenar = function(){
+                console.log(`El coche de marca ${this.marca}, modelo ${this.modelo}, de color ${this.color} ha parado.`);
+            };
+             v1.frenar();
+
+            // k
+            Object.defineProperties(v1, {
+                marca: {
+                    writable: true,
+                    configurable: false,
+                    enumerable: true,
+
+                },
+                modelo: {
+                    writable: false,
+                    configurable: true,
+                    enumerable: true,
+                    value: 'xx'
+                },
+                mostrarDatos: {
+                    writable: true,
+                    configurable: true,
+                    enumerable: false,
+
+                },
+                acelerar: {
+                    writable: true,
+                    configurable: true,
+                    enumerable: false,
+                    value: v1.acelerar
+                },
+                arrancar: {
+                    writable: true,
+                    configurable: true,
+                    enumerable: false,
+                    value: v1.arrancar
+                },
+                frenar: {
+                    writable: true,
+                    configurable: true,
+                    enumerable: false,
+                    value: v1.frenar
+                },
+            });
+
+
+
+            // l
+            delete v1.marca;
+            v1.modelo = "Clara";
+            console.log(v1.mostrarDatos);
+
+            // m
+            var toString = "Vehiculo";
+            for (var prop in v1) {
+                toString += ` | ${prop}`;
+            }
+            console.log(toString);
+            console.log(Object.getOwnPropertyNames(v1));
+            console.log(Object.keys(v1));
+
+            var v3 = new Vehiculo("Fiat", "Chinquechento", "Blanco", 2019);
+            pintarTabla(v1, v2,v3);
+
+            function pintarTabla(...vehiculos) {
+                body.innerHTML = `<table id='table' border="1">
+                    <thead>
+                        <th>MARCA</th>
+                        <th>MODELO</th>
+                        <th>COLOR</th>
+                        <th>AÑO FABRICACIÓN</th>
+                    </thead>`;
+                    for (var i = 0; i < vehiculos.length; i++) {
+                        table.innerHTML += `<tr id='${i}'>`;
+                            for (var prop in vehiculos[i]) {
+                                if (vehiculos[i].hasOwnProperty(prop)) {
+                                    document.getElementById(i).innerHTML += `<td>${vehiculos[i][prop]}</td>`;
+                                }
+                            }
+                            table.innerHTML += `</tr>`;
+                        }
+                        body.innerHTML += `</table>`;
+                    }
+        </script>
+    </body>
+</html>
