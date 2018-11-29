@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>¿Numero de hijos?</title>
+        <style media="screen">
+            div {
+                  margin: .2em 0;
+            }
+            div label {
+              width: 10%;
+              float: left;
+            }
+        </style>
+        <script>
+            function validar(){
+                    if (this.checkValidity() == false) {
+                        document.getElementById("error").innerHTML =` ${this.validationMessage}. ${this.title}`;
+                        this.value = '';
+                    }
+                }
+            window.onload = function(){
+                    for (i in document.forms[0].elements){
+                      document.forms[0].elements[i].onchange = validar;
+                    }
+
+                    enviar.onclick = function(e){
+                      //e.preventDefault(); 
+                    }
+
+                  }
+        </script>
+    </head>
+    <body>
+        <div>
+            <form action="" method="post">
+                <label for="nombre">NOMBRE: </label>
+                <input type="text" name="nombre" maxlength='20' value="" pattern="^[A-ZÑÁ-Ú][a-zñá-ú]+" required>(El formato es: Xxx)
+                <br>
+                <label for="hijos">Nº HIJOS:</label>
+                <input type="number" name="hijos" min="0" max="10" value="" required>(Válido 8-10 hijos, más no por dios)
+                <br><br>
+                <input type="submit" action="" name="save" value="Guardar" method="post" >
+                <input type="button" id="ve" name="ver" value="Ver">
+            </form>
+        </div>
+    </body>
+</html>

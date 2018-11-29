@@ -8,25 +8,26 @@
                   margin: .2em 0;
             }
             div label {
-              width: 10%;
+              width: 20%;
               float: left;
             }
         </style>
-        <script src="cookies.js" charset="utf-8"></script>
         <script>
             window.onload=function () {
                 dnis.addEventListener('change' ,function() {
                     var regexp=/^\d{2}\.\d{3}\.\d{3}-[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
                     if(!regexp.test(this.value)){
                         alert("El DNI no cumple con el formato");
+                        dnis.value="";
                     }
                     return true;
                 });
 
                 nombres.addEventListener('change' ,function() {
-                    var regexp2= /^([a-zñá-ú]+( [a-zñá-ú]+){1-3}){1-2}$/i;
+                    var regexp2= /^([a-zñá-ú]+){1-2}( [a-zñá-ú]+){1-2})$/i;
                     if(!regexp2.test(this.value)){
                         alert("El nombre no cumple con el formato");
+                        nombres.value="";
                     }
                     return true;
                 });
@@ -35,6 +36,7 @@
                     var regexp3= /^(0[1-9])|([1-2][0-9])|(3[01])\/(0[1-9])|(1[0-2])\/\d{4}$/i;
                     if(!regexp3.test(this.value)){
                         alert("La fecha de nacimiento no cumple con el formato");
+                        fnacs.value="";
                     }
                     return true;
                 });
@@ -43,6 +45,7 @@
                     var regexp4= /[a-zñá-ú][a-zñá-ú0-9]+@[a-zñá-ú]+\.[a-zñá-ú]+/i;
                     if(!regexp4.test(this.value)){
                         alert("El email no cumple con el formato");
+                        emails.value="";
                     }
                     return true;
                 });
@@ -50,110 +53,27 @@
                     var regexp5= /http:\/\/www\.[a-zñá-ú0-9]+\.[a-zñá-ú0-9]/i;
                     if(!regexp5.test(this.value)){
                         alert("La Pagina Web no cumple con el formato");
+                        pags.value="";
                     }
                     return true;
                 });
                 passs.addEventListener('change' ,function() {
-                    var regexp6=/.+{8-10}/i;
+                    var regexp6=/^.{8-10}$/i;
                     if(!regexp6.test(this.value)){
                         alert("La contraseña no cumple con el formato");
+                        passs.value="";
                     }
                     return true;
                 });
 
                 cnpasss.addEventListener('change' ,function() {
-                    var regexp7=/\w+{8-10}/i;
+                    var regexp7=/^\w{8-10}$/i;
                     if(!regexp7.test(this.value)){
                         alert("La contraseña no cumple con el formato");
+                        cnpasss.value="";
                     }
                     return true;
                 });
-
-                // var misCookies=["dni","nombre"];
-                // setCookie("dni", "Castillo");
-                // alert(document.cookie);
-                // verCookie.addEventListener('click' ,function() {
-                //     alert(getCookie("dni"));
-                // });
-
-                guardar.addEventListener('click',guardarCookies);
-                ver.addEventListener('click',verCookie);
-                verTodas.addEventListener('click',verTodasC);
-                eliminar.addEventListener('click',eliminarC);
-                eliminarTodas.addEventListener('click',eliminarTodasC);
-            }
-
-            function comprueba(e){
-                validarCampo(e.target.id, expresiones.get(this.value));
-            }
-
-            function validarCampo(valor, patron){
-              var x = document.getElementById(valor).value;
-              if (!expresiones.get(valor).test(x)) {
-                  console.log(`ERROR: El formato de ${valor} no es correcto!`);
-                  document.getElementById(valor).value = "";
-                }
-            }
-
-            function guardarCookies(){
-              var forms = document.getElementsByName('form');
-              var validos = true;
-              for (var i = 0; i < forms.length; i++) {
-                  if (forms[i].value == '') {
-                      validos = false;
-                  }
-              }
-              if (!validos) {
-                  alert('Para poder guardar, debe de haber validado todos los campos...');
-              }else {
-                  var d = new Date(2019,11,30);
-                  for (var i = 0; i < forms.length; i++) {
-                      setCookie(forms[i].id, forms[i].value,d);
-                  }
-              }
-            }
-
-            function verCookie() {
-                var c = prompt('Introduzca el nombre de la cookie:');
-                if (getCookie(c)) {
-                    alert(getCookie(c))
-                }else {
-                    alert('No se ha encontrado ninguna cookie con ese nombre.');
-                }
-            }
-
-            function verTodasC(){
-                var cookies = document.cookie.split(';');
-                if (cookies == '') {
-                    alert('No hay cookies que mostrar.');
-                }else {
-                    for (var i = 0; i < cookies.length; i++) {
-                        var c = cookies[i].split("=");
-                        alert(`${c[0].trim()}: ${decodeURIComponent(c[1].trim())}`);
-                    }
-                }
-            }
-
-
-            function eliminarC(){
-                var c = prompt('Introduzca el nombre de la cookie.');
-                if (getCookie(c)) {
-                    delCookie(c);
-                }else {
-                    alert('No se ha encontrado ninguna cookie con ese nombre.');
-                }
-            }
-
-            function eliminarTodasC(){
-                var cookies = document.cookie.split(';');
-                if (cookies == '') {
-                    alert('No hay cookies que eliminar.')
-                }else {
-                    for (var i = 0; i < cookies.length; i++) {
-                        var c = cookies[i].split("=");
-                        delCookie(c[0].trim());
-                    }
-                }
             }
 
         </script>
@@ -189,15 +109,13 @@
                 <label for="cnpass">Confirmar contraseña:</label>
                 <input type="text" name="cnpass" value="" id="cnpasss" required>
                 (Debe contener entre 8 y 10 caracteres)
+                <br>
+                <label for="hijos">Número de Hijos</label>
+                <input type="text" name="hijos" value="" id="hijos" required>
+                (Puede estar entre 8 y 10)
                 <br><br>
-                <input type="submit" id="guardar" action="" name="save" value="Guardar" method="post" required>
+                <input type="submit" action="" name="save" value="Guardar" method="post" required>
                 <input type="button" id="ve" name="ver" value="Ver">
-
-                <br><h3>COOKIES</h3>
-               <button id="ver" type="button">VER</button>
-               <button id="verTodas" type="button">VER TODAS</button>
-               <button id="eliminar" type="button">ELIMINAR</button>
-               <button id="eliminarTodas" type="button">ELIMINAR TODAS</button>
             </form>
         </div>
     </body>

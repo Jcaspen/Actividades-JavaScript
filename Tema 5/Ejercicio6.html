@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript" src="./cookies.js"> </script>
+        <script type="text/javascript">
+            window.onload = function(){
+                votar.addEventListener('click', vota);
+                actualizaContadores();
+            }
+
+            function vota(){
+                var sistema = document.getElementsByName('so');
+                for (var i = 0; i < sistema.length; i++) {
+                    if (sistema[i].checked) {
+                        renuevaContador(sistema[i].value);
+                    }
+                }
+            }
+
+
+            function renuevaContador(so){
+                var cont = 1;
+                if (getCookie(so)) {
+                    var contc = getCookie(so);
+                    contc++;
+                    setCookie(so,contc);
+                    document.getElementById(so).value = contc;
+                }else {
+                    setCookie(so,cont);
+                    document.getElementById(so).value = cont;
+                }
+            }
+
+            //Esta funcion comprueba si ya habia valores previos
+            function actualizaContadores(){
+                var inputs = valor.elements;
+                for (var i = 0; i < meteres.length; i++) {
+                    if (getCookie(inputs[i].id)) {
+                        inputs[i].value = getCookie(inputs[i].id);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h4>¿Qué sistema operativo móvil prefieres?</h4>
+        <input type="radio" name="so" value="ios">iOS<br>
+        <input type="radio" name="so" value="android">Android<br>
+        <input type="radio" name="so" value="window">Windows Phone<br>
+        <input type="radio" name="so" value="otros">Otros<br>
+        <br>
+        <input type="button" id="votar" value="Votar">
+        <br><br>
+        <input type="text" name="valor" id="ios" value="" min="0" max="100" readonly></input>iOS<br>
+        <input type="text" name="valor" id="android" value="" min="0" max="100" readonly></input>Android<br>
+        <input type="text" name="valor" id="window" value="" min="0" max="100" readonly></input>Windows Phone<br>
+        <input type="text" name="valor" id="otros" value="" min="0" max="100" readonly></input>Otros<br>
+    </body>
+</html>

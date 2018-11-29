@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 3</title>
+        <style media="screen">
+            div {
+                  margin: .2em 0;
+            }
+            div label {
+              width: 10%;
+              float: left;
+            }
+        </style>
+        <script>
+            function myFunction(e) {
+				e.preventDefault();
+			    var txt = "";
+                error.innerHTML ="";
+
+			    if (nombre.validity.patternMismatch) {
+			        nombre.setCustomValidity('Debe empezar por mayúscula');
+                    txt+=nombre.validationMessage;
+                    txt+=" ";
+			        error.innerHTML =txt;
+			    }
+			    if (hijos.validity.patternMismatch || hijos.validity.rangeOverflow || hijos.validity.rangeUnderflow) {
+			    	hijos.setCustomValidity('El número de hijos debe estar entre 0 y 10');
+                    txt+=hijos.validationMessage;
+                    txt+=" ";
+                    error.innerHTML = txt;
+			    }
+
+			}
+
+		    window.onload = function(){
+		    	enviar.onclick = myFunction;
+			}
+        </script>
+    </head>
+    <body>
+        <div>
+            <form action="" method="post">
+                <label for="nombre">NOMBRE: </label>
+                <input type="text" id="nombre" name="nombre" maxlength='20' value="" pattern="^[A-ZÑÁ-Ú][a-zñá-ú]+" required>(El formato es: Xxx)
+                <br>
+                <label for="hijos">Nº HIJOS:</label>
+                <input type="number" id="hijos" name="hijos" min="0" max="10" value="" required>(Válido 8-10 hijos, más no por dios)
+                <br><br>
+                <input type="submit" id="enviar" action="" name="save" value="Guardar" method="post" >
+                <input type="button" id="ve" name="ver" value="Ver">
+            </form>
+        </div>
+        <p id="error"></p>
+    </body>
+</html>
