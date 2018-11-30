@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 1</title>
+        <style media="screen">
+            #div1{
+                background-color:;
+            }
+        </style>
+        <script>
+            function accion() {
+                console.log("Hola");
+            }
+            window.onload=function() {
+                var elementos=opc.elements;
+                for (var i = 0; i < elementos.length; i++) {
+                    elementos[i].addEventListener('click', accion);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1" >
+            <p><h2>¿Es posible asesinar mediante un ataque informático?</h2> <br>
+                En 2008, la revista Popular Science reveló que un equipo de investigadores
+                de las universidades de Washington y Massachusetts había logrado
+                piratear un <a href="https://es.wikipedia.org/wiki/Marcapasos">marcapasos</a> y manipular a distancia algunas de sus
+                funciones. En teoría, de este modo sería posible detenerlo o
+                acelerarlo hasta matar a su portador. Y no, no es un asunto
+                exclusivo de la ciencia ficción.
+                El exvicepresidente estadounidense Dick Cheney ordenó desactivar
+                la conexión wifi de su marcapasos –una tecnología que permite a
+                los médicos detectar en el acto posibles problemas– para prevenir
+                este tipo de situaciones.
+            </p>
+            <p><h2>9 Trucos para iPad que no conocías y sin los que no podrás vivir</h2><br>
+                ¿Crees que estás sacando el máximo provecho a tu
+                <a href="https://www.muyinteresante.es/tecnologia/articulo/el-secreto-del-exito-del-ipad-141464702908">iPad?</a>
+                ¿Lo utilizas a diario y crees conocer todos sus secretos?
+                Siento decirte que lo más probable es que no sea así.
+                La tablet de Apple esconde un montón de funciones “ocultas”
+                y en las siguientes líneas veremos algunas de ellas que te
+                podrían resultar muy útiles en tu día a día.
+                Estos trucos para iPad te resultarán de gran ayuda y te
+                servirán para enamorarte un poquito más del dispositivo y
+                de iOS, su sistema operativo.Ser más rápido escribiendo,
+                seleccionar texto de forma más precisa, utilizar gestos para
+                ser más productivo o incluso digitalizar documentos sin necesidad
+                de instalar ninguna app ni accesorios extra. Todo esto es posible
+                con el iPad, aunque algunas opciones están demasiado ocultas y
+                por eso son desconocidos por muchos…
+                Vamos a ver los 9 trucos para iPad que nos recomiendan
+                desde <a href="https://www.todoappleblog.com/">Todoappleblog!</a>
+            </p>
+            </div>
+
+            <div id="div2">
+                <select id="opc" name="color">
+                    <option value="resaltar">Cambiar tipo de letra</option>
+                    <option value="resaltar2">Resaltar párrafos</option>
+                    <option value="resaltar3">Resaltar los enlaces</option>
+                    <option value="resaltar4">Resaltar los títulos</option>
+                    <option value="resaltar5">Aumentar el tamaño de letra</option>
+                </select>
+            </div>
+
+    </body>
+</html>

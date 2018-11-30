@@ -21,14 +21,14 @@
 			    if (nombre.validity.patternMismatch) {
 			        nombre.setCustomValidity('Debe empezar por mayúscula');
                     txt+=nombre.validationMessage;
-                    txt+=" ";
+                    txt+=" <br>";
 			        error.innerHTML =txt;
 			    }
 			    if (hijos.validity.patternMismatch || hijos.validity.rangeOverflow || hijos.validity.rangeUnderflow) {
 			    	hijos.setCustomValidity('El número de hijos debe estar entre 0 y 10');
                     txt+=hijos.validationMessage;
-                    txt+=" ";
-                    error.innerHTML = txt;
+                    txt+=" <br>";
+                    error.innerHTML =txt;
 			    }
 
 			}
