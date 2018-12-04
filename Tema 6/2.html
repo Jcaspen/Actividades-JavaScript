@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 2</title>
+        <script type="text/javascript">
+        window.onload = function (){
+            var img = document.getElementsByTagName('img');
+            for (var i = 0; i < img.length; i++) {
+                img[i].addEventListener('click', function(){
+                    var aportacion = document.createTextNode(this.getAttribute('alt'));
+                    var existe = document.getElementsByTagName('p')[0];
+                    if (existe) {
+                        existe.replaceChild(aportacion, existe.childNodes[0]);
+                    } else {
+                        var p = document.createElement("p");
+                        p.appendChild(aportacion);
+                        document.body.appendChild(p);
+                    }
+                });
+            }
+};
+        </script>
+    </head>
+    <body>
+        <h1>Personas que más han aportado a la humanidad</h1>
+        <div class="">
+            <img src="1.jpg" alt="Reventao cerebral">
+            <img src="2.jpg" alt="Sin palabras">
+            <img src="3.png" alt="El mejor bailarín">
+            <img src="4.jpg" alt="Mejor DJ del mundo">
+            <img src="5.jpg" alt="Persona con coeficiente de 390">
+        </div>
+
+    </body>
+</html>

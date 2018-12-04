@@ -4,23 +4,49 @@
         <meta charset="utf-8">
         <title>Actividad 1</title>
         <style media="screen">
-            #div1{
-                background-color:;
+            .divi{
+                background-color:red;
+            }
+
+            #div1 a{
+                color: red;
+            }
+
+            .p{
+                color:green;
             }
         </style>
         <script>
             function accion() {
-                console.log("Hola");
+                switch (this.value) {
+                    case "resaltar":
+                        div1.setAttribute("class","divi");
+                        break;
+                    case "letra":
+                        div1.style.font="serif";
+                        break;
+                    case "color":
+                        div1.style.color="blue";
+                        break;
+                    case "enlaces":
+                        document.links[0].style.color="green";
+                        document.links[1].style.color="green";
+                        document.links[2].style.color="green";
+                        break;
+                    default:
+
+                }
+
             }
             window.onload=function() {
-                var elementos=opc.elements;
-                for (var i = 0; i < elementos.length; i++) {
-                    elementos[i].addEventListener('click', accion);
+                var algo=opc.elements;
+                for (var i = 0; i < algo.length; i++) {
+                    algo[i].addEventListener('change', accion);
                 }
             }
         </script>
     </head>
-    <body>
+    <body id="body">
         <div id="div1" >
             <p><h2>¿Es posible asesinar mediante un ataque informático?</h2> <br>
                 En 2008, la revista Popular Science reveló que un equipo de investigadores
@@ -56,13 +82,14 @@
             </div>
 
             <div id="div2">
-                <select id="opc" name="color">
-                    <option value="resaltar">Cambiar tipo de letra</option>
-                    <option value="resaltar2">Resaltar párrafos</option>
-                    <option value="resaltar3">Resaltar los enlaces</option>
-                    <option value="resaltar4">Resaltar los títulos</option>
-                    <option value="resaltar5">Aumentar el tamaño de letra</option>
-                </select>
+                <form id="opc" action="" method="post">
+                    <select id="op" name="color">
+                        <option value="letra">Cambiar tipo de letra</option>
+                        <option value="resaltar">Resaltar párrafos</option>
+                        <option value="color">cambiar color de letra</option>
+                        <option value="enlaces">Cambiar color de enlaces</option>
+                    </select>
+                </form>
             </div>
 
     </body>
