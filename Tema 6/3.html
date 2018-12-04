@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 3</title>
+        <script type="text/javascript">
+
+
+            var texto="";
+            window.onload=function () {
+                anadir.addEventListener('click', function(){
+                    var lista=document.createElement("li");
+                    var txt=document.createTextNode(insert.value);
+                    lista.appendChild(txt);
+                    body.appendChild(lista);
+                });
+
+                borrar.addEventListener('click', function(){
+                    let listas=document.getElementsByTagName('li');
+                    for(var i=0;i<listas.length;i++){
+                        listas[i].parentNode.removeChild(listas[i]);
+                    }
+
+                });
+                clonar.addEventListener('click', function () {
+                    let listas=document.getElementsByTagName('li');
+                    let clone=listas[listas.length-1].cloneNode(true);
+                    document.body.appendChild(clone);
+
+
+
+                });
+            }
+        </script>
+    </head>
+    <body id="body">
+        <form class="" action="" method="post">
+            <label for="insertar">¿Elemento a insertar?</label>
+            <input type="text" id="insert" name="insertar" value="">
+            <input type="button" id="anadir" value="Añadir">
+            <input type="button" id="borrar" value="Borrar nodos vacíos">
+            <input type="button" id="clonar" value="Clonar último nodo">
+        </form>
+    </body>
+</html>
