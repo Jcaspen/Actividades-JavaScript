@@ -5,10 +5,11 @@
         <title>Actividad 3</title>
         <script type="text/javascript">
 
-
+            //Completar con atajos de teclado :D
             var texto="";
             window.onload=function () {
                 anadir.addEventListener('click', function(){
+                    //añadir el ul antes de los li
                     var lista=document.createElement("li");
                     var txt=document.createTextNode(insert.value);
                     lista.appendChild(txt);
@@ -18,18 +19,28 @@
                 borrar.addEventListener('click', function(){
                     let listas=document.getElementsByTagName('li');
                     for(var i=0;i<listas.length;i++){
-                        listas[i].parentNode.removeChild(listas[i]);
+                        if(listas[i].firstChild.nodeValue==""){
+                            listas[i].parentNode.removeChild(listas[i]);
+                            i--;
+                        }
                     }
 
                 });
                 clonar.addEventListener('click', function () {
+
                     let listas=document.getElementsByTagName('li');
                     let clone=listas[listas.length-1].cloneNode(true);
+                    // Va para el ul
                     document.body.appendChild(clone);
 
 
 
                 });
+
+                insert.addEventListener('submit',function () {
+                    insert.preventDefault();
+                });
+                //poner el preventDefault para el submit del intro
             }
         </script>
     </head>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 5</title>
+
+        <script type="text/javascript">
+
+            var imagenesCargadas=['1.jpg', '2.jpg', '3.png', '4.jpg', '5.jpg'];
+            var count=0;
+
+            function suma() {
+
+                imagen.setAttribute("src",imagenesCargadas[count]);
+                count++;
+
+            }
+            function resta() {
+                count--;
+                imagen.setAttribute("src",imagenesCargadas[count]);
+
+            }
+
+            window.onload=function () {
+                adelante.addEventListener('click', function (e) {
+                    if(count==imagenesCargadas.length){
+                        count=0;
+                        suma();
+                    }else{
+                        suma();
+                    }
+                });
+
+                atras.addEventListener('click', function () {
+                    if(count==0){
+                        count=imagenesCargadas.length;
+                        resta();
+                    }else{
+                        resta();
+                    }
+                });
+            };
+        </script>
+    </head>
+    <body id="body">
+
+            <a id="atras">Atrás</a>
+            <img src="1.jpg" id="imagen" alt="Ahora no ves la imágen ehh">
+            <a id="adelante">Adelante</a>
+    </body>
+</html>
