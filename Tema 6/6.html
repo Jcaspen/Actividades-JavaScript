@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 6</title>
+        <style media="screen">
+            .cajon{
+                margin:auto;
+                margin-top:30px;
+                background:#F0F0F0;
+                width:200px;
+                height:200px;
+                border:1px solid black;
+            }
+            #primero{
+                position:absolute;
+            }
+            #segundo{
+                position:absolute;
+                top:10px;
+                left:270px;
+            }
+            #comparado{
+
+                position:absolute;
+                top:240px;
+                left:130px;
+
+            }
+            p{
+                font-size:600%;
+                margin-left:40%;
+                margin-top:20%;
+            }
+        </style>
+        <script type="text/javascript">
+            function comprobarMayor() {
+                var a=parseInt(p1.childNodes[0].nodeValue);
+                var b=parseInt(p2.childNodes[0].nodeValue);
+                if(a >= b){
+                    return 1;
+                }else{
+                    return 2;
+                }
+
+            }
+            window.onload=function () {
+                generar.addEventListener('click', function(e) {
+                    var aleatorio1=Math.floor(Math.random()*10);
+                    var aleatorio2=Math.floor(Math.random()*10);
+                    if(p1.lastChild==null && p2.lastChild==null){
+                        var primera=document.createTextNode(aleatorio1);
+                        var segunda=document.createTextNode(aleatorio2);
+                        p1.appendChild(primera);
+                        p2.appendChild(segunda);
+                    }
+
+                    var tres=document.createTextNode(aleatorio1);
+                    var cuatro=document.createTextNode(aleatorio2);
+
+                    if(p1.lastChild==null && p2.lastChild!= null){
+                        p1.appendChild(tres);
+                        p2.replaceChild(cuatro, p2.childNodes[0]);
+                    }
+
+                    if(p1.lastChild!=null && p2.lastChild==null){
+                        p2.appendChild(tres);
+                        p1.replaceChild(cuatro, p1.childNodes[0]);
+                    }
+
+                });
+
+                compara.addEventListener('click', function(){
+                    if(p3.lastChild==null){
+                        if(comprobarMayor()==1){
+                            var com=document.createTextNode(p1.childNodes[0].nodeValue);
+                            p1.removeChild(p1.childNodes[0]);
+                        }else {
+                            var com=document.createTextNode(p2.childNodes[0].nodeValue);
+                            p2.removeChild(p2.childNodes[0]);
+                        }
+                        p3.appendChild(com);
+                    }else {
+                        if(comprobarMayor()==1){
+                            var com2=document.createTextNode(p1.childNodes[0].nodeValue);
+                            p1.removeChild(p1.childNodes[0]);
+                        }else {
+                            var com2=document.createTextNode(p2.childNodes[0].nodeValue);
+                            p2.removeChild(p2.childNodes[0]);
+                        }
+
+                        p3.replaceChild(com2, p3.childNodes[0]);
+                    }
+                });
+            };
+        </script>
+    </head>
+    <body>
+            <div id="primero" class="cajon">
+                <p id="p1"></p>
+            </div>
+
+            <div id="segundo" class="cajon">
+                <p id="p2" ></p>
+            </div>
+
+            <div id="comparado" class="cajon">
+                <p id="p3" ></p>
+            </div>
+
+            <input type="button" name="genera" id="generar" value="Generar">
+            <input type="button" name="compara" id="compara" value="Comparar">
+    </body>
+</html>
