@@ -1,13 +1,46 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
         <title>Actividad 4</title>
+        <style media="screen">
+            a {
+                color: blue;
+            }
+            .visto{
+                color:red;
+            }
+        </style>
         <script type="text/javascript">
-            
+            var respuestas=["Volando","Nadando", "Corriendo"];
+
+            window.onload = function(){
+                var as = document.getElementsByTagName('a');
+                for (var i = 0; i < as.length; i++) {
+                    as[i].addEventListener('click', function(){
+                        if (p=document.getElementsByTagName('p')[0]) {
+                            div.removeChild(p);
+                        }
+                        this.setAttribute('class', 'visto');
+                        var pe = document.createElement('p');
+                        var txt = document.createTextNode(respuestas[this.id]);
+                        pe.appendChild(txt);
+                        this.parentNode.insertBefore(pe, this.nextSibling);
+                    });
+                }
+            };
         </script>
     </head>
     <body>
-
+        <div>
+            <div>
+                <h1>FAQS</h1>
+            </div>
+            <div id="div">
+                <a id="0">¿Como Voy a las Islas Canarias?</a><br>
+                <a id="1">¿Como cruzo un lago?</a><br>
+                <a id="2">¿Como realizo una maratón?</a>
+            </div>
+        </div>
     </body>
 </html>

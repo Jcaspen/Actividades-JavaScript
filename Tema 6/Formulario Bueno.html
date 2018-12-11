@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Formulario en condiciones</title>
+        <style media="screen">
+            div {
+                  margin: .2em 0;
+            }
+            div label {
+              width: 10%;
+              float: left;
+            }
+        </style>
+
+        <script>
+            window.onload=function () {
+                dnis.addEventListener('change' ,function() {
+                    var regexp=/^\d{2}\.\d{3}\.\d{3}-[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
+                    if(!regexp.test(this.value)){
+                        this.value="";
+                        var error=document.createTextNode("El DNI no cumple con el formato");
+                        if(dnispan.childNodes[0]==null){
+                            dnispan.appendChild(error);
+                        }
+                    }else {
+                        dnispan.removeChild(dnispan.childNodes[0]);
+                    }
+                    return true;
+                });
+
+                nombres.addEventListener('change' ,function() {
+                    var regexp2= /^([a-zñá-ú]+( [a-zñá-ú]+){1-3}){1-2}$/i;
+                    if(!regexp2.test(this.value)){
+                        this.value="";
+                        var error=document.createTextNode("El Nombre no cumple con el formato");
+                        if(nombrespan.childNodes[0]==null){
+                            nombrespan.appendChild(error);
+                        }
+                    }else {
+                        nombrespan.removeChild(nombrespan.childNodes[0]);
+                    }
+                    return true;
+                });
+
+                fnacs.addEventListener('change' ,function() {
+                    var regexp3= /^(0[1-9])|([1-2][0-9])|(3[01])\/(0[1-9])|(1[0-2])\/\d{4}$/i;
+                    if(!regexp3.test(this.value)){
+                        this.value="";
+                        var error=document.createTextNode("La fecha no cumple con el formato");
+                        if(fechaspan.childNodes[0]==null){
+                            fechaspan.appendChild(error);
+                        }
+                    }else {
+                        fechaspan.removeChild(fechaspan.childNodes[0]);
+                    }
+                    return true;
+                });
+
+                emails.addEventListener('change' ,function() {
+                    var regexp4= /[a-zñá-ú][a-zñá-ú0-9]+@[a-zñá-ú]+\.[a-zñá-ú]+/i;
+                    if(!regexp4.test(this.value)){
+                        this.value="";
+                        var error=document.createTextNode("El email no cumple con el formato");
+                        if(emailspan.childNodes[0]==null){
+                            emailspan.appendChild(error);
+                        }
+                    }else{
+                        emailspan.removeChild(emailspan.childNodes[0]);
+                    }
+                    return true;
+                });
+                pags.addEventListener('change' ,function() {
+                    var regexp5= /http:\/\/www\.[a-zñá-ú0-9]+\.[a-zñá-ú0-9]/i;
+                    if(!regexp5.test(this.value)){
+                        this.value="";
+                        var error=document.createTextNode("La Pág.Web no cumple con el formato");
+                        if(webspan.childNodes[0]==null){
+                            webspan.appendChild(error);
+                        }
+                    }else{
+                        webspan.removeChild(webspan.childNodes[0]);
+                    }
+                    return true;
+                });
+                passs.addEventListener('change' ,function() {
+                    var regexp6= /[\w]{8-10}/i;
+                    if(!regexp6.test(this.value)){
+                        this.value="";
+                        var error=document.createTextNode("La contraseña no cumple con el formato");
+                        if(passpan.childNodes[0]==null){
+                            passpan.appendChild(error);
+                        }
+                    }else{
+                        passpan.removeChild(passpan.childNodes[0]);
+                    }
+                    return true;
+                });
+
+                cnpasss.addEventListener('change' ,function() {
+                    var regexp7=/[\w]{8-10}/i;
+                    if(!regexp7.test(this.value)){
+                        this.value="";
+                        var error=document.createTextNode("La contraseña no cumple con el formato");
+                        if(cnpasspan.childNodes[0]==null){
+                            cnpasspan.appendChild(error);
+                        }
+                    }else{
+                        cnpasspan.removeChild(passpan.childNodes[0]);
+                    }
+                    return true;
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <form action="" method="post" id="formus" name="formValidad">
+                <br>
+                <label for="dni" id="1">DNI:</label>
+                <input type="text" name="dni" value="" id="dnis" placeholder="99.999.999-X" required>
+                <span class="label label-default pull-right" id="dnispan"></span>
+                <br>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" value="" id="nombres" placeholder="1 nombre 1 apellido max.2 y 2" required>
+                <span class="label label-default pull-right" id="nombrespan"></span>
+                <br>
+                <label for="fnac">F.Nac.:</label>
+                <input type="text" name="fnac" value="" id="fnacs" placeholder="dd/mm/yyyy" required>
+                <span class="label label-default pull-right" id="fechaspan"></span>
+                <br>
+                <label for="email">E-mail:</label>
+                <input type="text"  name="email" value="" id="emails" placeholder="xxx@yyy.zzz" required>
+                <span class="label label-default pull-right" id="emailspan"></span>
+                <br>
+                <label for="pag">Pág. Web:</label>
+                <input type="text" name="pag" value="" id="pags" placeholder="http://www.xxx.yyy" required>
+                <span class="label label-default pull-right" id="webspan"></span>
+                <br>
+                <label for="pass">Contraseña:</label>
+                <input type="password" name="pass" value="" id="passs" placeholder="8-10 caracteres" required>
+                <span class="label label-default pull-right" id="passpan"></span>
+                <br>
+                <label for="cnpass">Confirmar contraseña:</label>
+                <input type="password" name="cnpass" value="" id="cnpasss" placeholder="8-10 caracteres" required>
+                <span class="label label-default pull-right" id="cnpasspan"></span>
+                <br><br>
+                <input type="submit" id="guardar" action="" name="save" value="Guardar" method="post" required>
+                <input type="button" id="ve" name="ver" value="Ver">
+            </form>
+        </div>
+    </body>
+</html>
