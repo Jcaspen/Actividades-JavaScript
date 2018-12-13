@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 7</title>
+        <style media="screen">
+
+        </style>
+        <script type="text/javascript">
+            var entrada1=prompt("Cuantas filas tendra la tabla?");
+            var entrada2=prompt("Cuantas columnas tendra la tabla?");
+            window.onload=function() {
+                var body=document.getElementsByTagName("body")[0];
+
+                var tabla = document.createElement('table');
+                var tblBody= document.createElement('tbody');
+                for (var i = 0; i < entrada1; i++) {
+                    var filas= document.createElement('tr');
+
+                    for (var j = 0; j < entrada2; j++) {
+                        var columna=document.createElement('td')
+                        let valor=prompt(`Que valor introducimos en celda ${i} columna ${j}?`);
+                        var txt= document.createTextNode(valor);
+                        columna.appendChild(txt);
+                        filas.appendChild(columna);
+                    }
+                    tblBody.appendChild(filas);
+                    tabla.appendChild(tblBody);
+                    body.appendChild(tabla);
+
+                    tabla.setAttribute("border", "2");
+
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
