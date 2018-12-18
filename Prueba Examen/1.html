@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Actividad 1</title>
+        <style media="screen">
+            table {
+                width: 11%;
+                border: 1px solid #000;
+
+            }
+            th, td {
+                height:20px;
+                text-align: left;
+                vertical-align: top;
+                border: 1px solid #000;
+            }
+        </style>
+        <script type="text/javascript">
+            var inputs= document.getElementsByTagName('input');
+            var paraAsignar;
+
+            function suma() {
+                var valoresTabla=0;
+                for (var i = 0; i < tabla.length; i++) {
+                    let sum=tabla.childNodes[i].value;
+                    valoresTabla+=parseInt(sum);
+                }
+                let nuevop=document.createElement('p');
+                let nuevo=document.createTextNode(valoresTabla);
+                nuevop.appendChild(nuevo);
+                tabla.appendChild(nuevop);
+            }
+
+            function generar() {
+                var ventanilla=open('', '','width=600,height=300');
+                formularioVentana(ventanilla);
+            }
+
+            function validar() {
+
+                var expr= /^\d{2}$/;
+
+                if(expr.test(this.value)){
+                    document.getElementById(1).value=this.value;
+                    this.setAttribute('readonly','readonly');
+                }else{
+                    var p= document.createElement('p');
+                    let txt=document.createTextNode("El contenido no es el formato correcto");
+                    p.appendChild(txt);
+                    this.parentNode.appendChild(p);
+
+                }
+            }
+
+
+            function formularioVentana(ventanilla) {
+                ventanilla.document.write(`<form>`);
+                ventanilla.document.write(`<input type="text" name="" value=""><br><br>`);
+                ventanilla.document.write(`<input type="text" name="" value=""><br><br>`);
+                ventanilla.document.write(`<button type="button" name="button" id="cerrar">Cerrar</button><br><br>`);
+                ventanilla.document.write(`</form>`);
+
+                ventanilla.document.getElementById('cerrar').onclick=function () {
+                    ventanilla.close();
+                };
+
+                var elementosForm=ventanilla.document.getElementsByTagName('input');
+                for (var i = 0; i < elementosForm.length; i++) {
+                    elementosForm[i].addEventListener('change',validar);
+                }
+
+            }
+
+
+            function asignar(e) {
+                if(paraAsignar==null){
+
+                }else{
+
+                    var txt= document.createTextNode(paraAsignar);
+                    if(this.childNodes[0]==null){
+                        this.appendChild(txt);
+                    }
+                }
+            }
+
+            function selec() {
+                paraAsignar=this.value;
+            }
+
+
+
+
+            window.onload=function () {
+                inputs[0].addEventListener('click', generar);
+                for (var i = 0; i < 3; i++) {
+                    var row = tabla.insertRow(-1);
+                    for (var j = 0; j < 3; j++) {
+                        var cell= row.insertCell(-1);
+                        cell.addEventListener('mouseover',asignar);
+                     }
+                }
+
+
+                var valoresAsig=document.getElementsByName('?');
+                var botones= document.getElementsByTagName('button');
+                botones[0].addEventListener('click',function () {
+                    location.reload();
+                });
+
+                inputs[1].addEventListener('click',selec);
+                inputs[2].addEventListener('click',selec);
+                inputs[3].addEventListener('click',selec);
+
+
+                botones[1].addEventListener('click', suma);
+            }
+        </script>
+    </head>
+    <body id="body">
+        <input type="button" name="" value="Generar Números">
+        <input type="button" id="1" name="?" value="?">
+        <input type="button" id="2" name="?" value="?">
+        <input type="button" id="3" name="?" value="?">
+        <table id="tabla" class="">
+
+        </table>
+        <button type="button" name="button">Limpiar</button>
+        <button type="button" name="button">suma</button>
+
+
+
+    </body>
+</html>
