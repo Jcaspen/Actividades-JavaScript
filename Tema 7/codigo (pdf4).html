@@ -1,0 +1,128 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+		p + ul {
+			display: none;
+		}
+	/*	.fondo{background-color: grey}*/
+
+	</style>
+	<script src="jquery-3.3.1.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		function cantidadCursos() {
+			var cursos=0;
+			$("p").each(function () {
+				cursos++;
+			});
+			return cursos;
+		}
+		// --------Apartado 1
+		$(function () {
+			alert("Hay "+ cantidadCursos() +" cursos");
+
+			//-----------Apartado 2
+			$("p").hover(function () {
+				$("ul").css("display","block");
+			});
+
+			$("p").mouseleave(function () {
+				$("ul").css("display", "none");
+			});
+			//------------Apartado 3
+			// $(window).on( "keydown", function (e) {
+			// 	if(e.which == 40){
+			// 		$("ul").css("display","block");
+			// 	}
+			//
+			// 	if(e.which == 38){
+			// 		$("ul").css("display", "none");
+			// 	}
+			// });
+			//--------Apartado 4
+			$(window).on("keyup",function (e) {
+				$("ul").css("display", "none");
+			});
+			//--------------Apartado 5
+			//$(window).off();
+			//---------------Apartado 6
+			$(window).on( "keydown", function (e) {
+				if(e.which == 40){
+					$("ul").css("display","block");
+
+					$(window).off();
+				}
+
+				if(e.which == 38){
+					e.preventDefault();
+					$("ul").css("display", "none");
+				}
+			});
+
+			//---------------Apartado 7
+			// $("body ul:nth-child(4) li ul").hover(function (e) {
+			// 	var horas=$(this).attr("data-hours");
+			// 	$(this).attr("title",horas);
+			// });
+
+			//----------------Apartado 8
+			$("body ul:nth-child(4) li ul").on("click",function () {
+				var horas=$(this).attr("data-hours");
+				alert(horas);
+			});
+
+			//-----------Apartado 9
+			$("body ul:nth-child(4) li:first ~ li, body ul:nth-child(4) li:first ").on("click",{modalidad:"presencial"},function(e) {
+				alert("Modalidad "+ e.data.modalidad  );
+			});
+		});
+
+
+	</script>
+</head>
+<body>
+	<p>Primero</p>
+	<ul>
+
+		<li>Base de Datos</li>
+		<li>Lenguajes de Marcas</li>
+		<li></li>
+	</ul>
+
+	<p>Segundo</p>
+	<ul>
+		<li >DWESE
+			<ul data-hours='10'>
+				<li class='azul' >Desarrollo Web en Entorno Servidor</li>
+
+			</ul>
+		</li>
+		<li>DWECL
+			<ul data-hours='7'>
+				<li class='azul'>Desarrollo Web en Entorno Cliente</li>
+
+			</ul>
+		</li>
+		<li>DAW
+			<ul data-hours='3'>
+				<li class='azul'>Despliegue de Aplicaciones Web</li>
+
+			</ul>
+		</li>
+		<li>DIWEB
+			<ul data-hours='6'>
+				<li class='azul'>Diseño de Interfaces Web</li>
+
+			</ul>
+		</li>
+		<li>EIE
+			<ul data-hours='4'>
+				<li class='azul'>Entorno e Iniciativa Empresarial</li>
+
+			</ul>
+		</li>
+	</ul>
+
+</body>
+</html>
