@@ -1,0 +1,98 @@
+<html>
+<head>
+	<title>Pdf 5</title>
+    <style type="text/css">
+        .cambio{
+
+        }
+        div{
+            position:absolute;
+            width:800px;
+            height:70px;
+            top:0;
+            left:100;
+            background-color:#FF0000;
+        }
+    </style>
+    <script src="jquery-3.3.1.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function() {
+            //------------- Apartado 1
+            $("body").append("<div>Hola</div>");
+            $("div").dblclick(function (e) {
+                var tamanio={
+                    width:"250px",
+                    heigth:"250px"
+                };
+
+                if($(this).css("width")=="250px"){
+                    $(this).css({
+                    width:"800px",
+                    height:"70px"});
+                } else{
+                    $(this).css(tamanio);
+                }
+
+                if($("body").is($("#mensaje"))){
+                    $("#mensaje").html($(this).css("width"));
+                }else {
+                    $("body").prepend(`<p id="mensaje">${$(this).css("width")}</p>`);
+                }
+            });
+            $("body").append("<button type='button' id='btn' name='button'>Púlsame</button>");
+            //-------------Apartado 2
+            $("#btn").click(function() {
+                let posicion=$("div").css("left");
+                $("div").css("left", "0");
+                $("div").css("width", `${$("div").width()-150}px`)
+            });
+            //----------------------Apartado 3
+            $("body").append("<button type='button' id='btn2' name='button'>Aumentar</button>");
+            $("#btn2").click(function() {
+                $("div").animate({height:"+=100", left:"+=50"},5000);
+                $("div").animate({width:"+=100"},5000);
+            });
+
+            $("body").append("<button type='button' id='btn3' name='button'>Reducir</button>");
+            $("#btn3").click(function() {
+                //------------- Apartado 4
+                let ancho=prompt("Introduce el ancho a reducir");
+                let alto=prompt("Introduce el alto a reducir");
+                $("div").css("height", `${$("div").height()-ancho}px`);
+                $("div").css("width", `${$("div").width()-alto}px`);
+            });
+
+            $("body").append("<button type='button' id='btn4' name='button'>Desaparece y aparece</button>");
+
+            $("#btn4").click(function() {
+                //------------- Apartado 5 y 6
+                $("div").hide(2000,function () {
+                    $("div").show(2000);
+                });
+
+            });
+
+            $("body").append("<button type='button' id='btn5' name='button'>En orden</button>");
+
+            $("#btn5").click(function() {
+                //------------- Apartado 7
+                $("div").animate({left:"+=100"},5000, function() {
+                    $("div").css("font-size", "35px");
+                });
+
+            });
+
+            
+
+
+
+
+
+        });
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>
