@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+
+			label {display: block;}
+			span { color: red;}
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+		$(document).ready(carga);
+		function validacionFinal() {
+			var formularioValido = true;
+			var objetosValidacion = $("[name='nombre']");
+			objetosValidacion.push($("[name='tel']"));
+			objetosValidacion.push($("[name='cp']"));
+			objetosValidacion.push($("[name='email']"));
+			objetosValidacion.each(function(i) {
+				if($(this).attr("valido") != "true") {
+					formularioValido = false;
+					return false;
+				}
+			});
+			if(formularioValido == false) {
+				alert("El formulario tiene campos incorrectos o está incompleto, no se puede enviar.");
+			} else {
+				alert("Formulario enviado")
+			}
+		}
+		function carga() {
+			$("[name='nombre']").blur(vNombre);
+			$("[name='tel']").blur(telefono);
+			$("[name='cp']").blur(cp);
+			$("[name='email']").blur(validarMail);
+			$("[name='enviar']").click(validacionFinal);
+		}
+
+		function vNombre() {
+			if(/^[A-ZÁ-ÚÑ][a-zá-úñ]*$/.test($(this).val())!=true){
+				pintarError($(this), "Debe empezar por Mayúsculas");
+			}else{
+				limpiar($(this));
+			}
+		}
+
+
+		function telefono() {
+			if(/^\d{3}-\d{6}$/.test($(this).val())!=true) {
+				pintarError($(this), "Sólo pueden insertarse numeros.");
+			} else {
+				limpiar($(this));
+			}
+		}
+		function cp() {
+			if($(this).val().length != 5 || $.trim($(this).val()) == "" ||
+			isNaN($(this).val())) {
+				pintarError($(this), "Debe introducir 5 dígitos exactamente.");
+			} else {
+				limpiar($(this));
+			}
+		}
+
+		function validarMail() {
+			if(/^\w+([\.-]\w+)*@\w+([\.-]\w+)*$/.test($(this).val()) ==
+			false) {
+				pintarError($(this),"La dirección de email es incorrecta.");
+			} else {
+				limpiar($(this));
+			}
+		}
+
+		function contieneValor() {
+			if($(this).val() == "") {
+				pintarError($(this), "El campo debe contener un valor.");
+			} else {
+				limpiar($(this));
+			}
+		}
+
+		function pintarError(elemento, msg) {
+			elemento.css("background-color", "Salmon");
+			elemento.parent().append(msg);
+			elemento.attr("valido", "false");
+		}
+
+		function limpiar(elemento) {
+			elemento.css("background", "PaleGreen");
+			elemento.parent().append("Ok");
+			elemento.attr("valido", "true");
+		}
+
+	</script>
+	</head>
+
+	<body>
+		<h1>Formulario IES Doñana</h1>
+		<form name="formulario" id="f">
+			<label> Nombre:
+				<input type="text" name="nombre" placeholder='Xxxx' />
+			</label>
+			<label>Teléfono:
+				<input type="text" name='tel' placeholder="XXX-XXXXXX"/>
+			</label>
+			<label> Código postal:
+				<input type="text" name='cp' placeholder='XXXXX'  />
+			</label>
+			<label> Email:
+				<input type="text" name="email" placeholder='xxx@xxxx.xx'/>
+			</label>
+			<input type="submit" name='enviar' value="Enviar"/>
+		</form>
+	</body>
+</html>
