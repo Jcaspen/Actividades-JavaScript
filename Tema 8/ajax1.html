@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Peticiones AJAX 1 Ejercicio 1</title>
+        <script src="jquery-3.3.1.js" charset="utf-8"></script>
+        <script type="text/javascript">
+
+            function procesaRespuesta(data) {
+                $("#respuesta").html(data);
+            }
+
+            function muestraError() {
+                alert("Ha habido un error");
+            }
+            function ajax() {
+                var fecha=$("#fecha_nacimiento").val();
+                var codigo=$("#codigo_postal").val();
+                var telefono=$("#telefono").val();
+
+                $.ajax({
+                    url: './servidor.php',
+                    type: 'POST',
+                    async: true,
+                    data: `${$("form").serialize()}`,
+                    success: procesaRespuesta,
+                    error: muestraError
+                });
+
+            }
+
+            $(function() {
+
+                $(":submit").click(function () {
+                    ajax();
+                    return false;
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <form>
+            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+            <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" />
+            <br/>
+            <label for="codigo_postal">Codigo postal:</label>
+            <input type="text" id="codigo_postal" name="codigo_postal" /><br/>
+            <label for="telefono">Telefono:</label>
+            <input type="text" id="telefono" name="telefono" /><br/>
+            <input type="submit" value="Validar datos"/>
+
+        </form>
+        <p id="respuesta"></p>
+    </body>
+</html>
