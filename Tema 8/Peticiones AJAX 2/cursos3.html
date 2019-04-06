@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.3.1.js" charset="utf-8"></script>
+	<script type="text/javascript">
+        function procesaRespuesta(data) {
+            $.each(data, (clave, valor)=>{
+                $(".curso").append(` <li id="${clave}">${clave+1} DAW</li>`);
+                for (var i = 0; i < data.length; i++) {
+                    $(`#${clave}`).append(`<ul>Nombre: ${valor[i].nombre}, DNI: ${valor[i].dni}, Acceso: ${valor[i].acceso}</ul>`);
+                }
+            });
+        }
+
+	function ajax() {
+		$.get("./servidor.php")
+		.done(procesaRespuesta)
+		.fail("Ha habido un error.");
+	}
+
+
+	$(function () {
+		$("button").click(ajax);
+	});
+</script>
+</head>
+<body>
+    <div class="">
+        <button class="cursillos">Ver cursos</button>
+    </div>
+    <br><br>
+	<div class="curso">
+	</div>
+</body>
+</html>

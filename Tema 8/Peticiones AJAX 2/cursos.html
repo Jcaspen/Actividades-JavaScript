@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.3.1.js" charset="utf-8"></script>
+	<script type="text/javascript">
+	function getCurso(id) {
+		$('#info *').remove();
+		$('<p>')
+		.html(`Listado de alumnos matriculados en ${id+1}DAW son:`)
+		.appendTo('#info');
+		var $list = $('<ul>')
+		$.each(datos[id], (clave, valor)=>{
+			$('<li>').html(`Nombre: ${valor.nombre} DNI: ${valor.dni} Acceso: ${valor.acceso}`).appendTo($list);
+			});
+			$list.appendTo('#info');
+		}
+
+        function procesaRespuesta(data) {
+			switch (this.value) {
+                case "1DAW":
+                    getCurso(0);
+                    break;
+                case "2DAW":
+                    getCurso(1);
+                    break;
+                default:
+                    alert("Mal");
+
+            }
+        }
+
+	function ajax() {
+		$.get("./servidor.php")
+		.done(procesaRespuesta)
+		.fail("Ha habido un error.");
+	}
+
+
+	$(function () {
+		$("button").click(ajax);
+        $(":text").change(function() {
+			procesaRespuesta;
+        });
+	});
+</script>
+</head>
+<body>
+    <div class="">
+        Introduzca el curso que desea buscar:
+        <input type="text" name="" value="">
+        <button class="cursillos">Ver cursos</button>
+    </div>
+    <br><br>
+	<div class="info">
+		<li></li>
+	</div>
+</body>
+</html>

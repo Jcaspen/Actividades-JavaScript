@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.3.1.js" charset="utf-8"></script>
+	<script type="text/javascript">
+	function procesaRespuesta(data) {
+		$.each(data, (clave, valor)=>{
+			$(".flight-times").append(`<li>${valor.flightNumber}-${valor.time}</li>`);
+		});
+	}
+
+	function ajax() {
+		$.get("./servidor.php")
+		.done(procesaRespuesta)
+		.fail("Ha habido un error.");
+	}
+
+
+	$(function () {
+		$("button").click(ajax);
+	});
+</script>
+</head>
+<body>
+	<button class="update-available-flights">Ver vuelos</button>
+	<div class="flights">
+	  <ul class="flight-times">
+
+	  </ul>
+	</div>
+
+</body>
+</html>
